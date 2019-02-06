@@ -1,0 +1,16 @@
+#yield{
+	height: 100%;
+}
+
+.content-top{
+	/*style*/
+}
+
+.content-middle{
+	max-height: 60vh;
+	overflow: auto;
+}
+
+.content-bottom{
+	/*style*/
+}
