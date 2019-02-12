@@ -20,12 +20,16 @@
     <link href="{{ asset('css/app.css') }}" rel="stylesheet">
     <link href="{{ asset('css/style.css') }}" rel="stylesheet" />
     <link href="{{ asset('css/sidebar.css') }}" rel="stylesheet" />
+
+    <!-- Icon -->
+    <link rel="shortcut icon" href="{{ asset('images/logo.png') }}">
 </head>
 <body>
     <div id="app">
         <nav class="navbar navbar-expand-md navbar-light navbar-laravel navbar-height">
-            <div class="container">
-                <a class="navbar-brand" href="{{ url('/') }}">
+            <div class="container-fluid">
+                <a class="navbar-brand" href="{{ url('/papers') }}">
+                    <img src="{{ asset('images/logo.png') }}" width="50">
                     {{ config('app.name', 'Laravel') }}
                 </a>
                 <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="{{ __('Toggle navigation') }}">
@@ -75,7 +79,7 @@
         </nav>
 
         <div class="container-fluid p-0 d-flex justify-content-between main-container">
-            @include('sidebar')
+            @include('inc/sidebar')
             <div class="container-fluid bg-white border p-4 m-4">
                 <main>
                     @yield('content')

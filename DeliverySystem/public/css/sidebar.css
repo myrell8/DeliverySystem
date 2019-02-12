@@ -19,11 +19,10 @@
     transition: all 0.3s;
 }
 
-/*active effect*/
-/*.nav-link:focus {
+.active {
   color: grey;
-  background: #fff;
-}*/
+  background: #F8FAFC
+}
 
 #sidebar .sidebar-header {
     padding: 20px;

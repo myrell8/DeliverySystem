@@ -2,15 +2,31 @@
 	height: 100%;
 }
 
-.content-top{
-	/*style*/
+.form-button-column{
+	width: 7%;
 }
 
-.content-middle{
+.content-top{
+	min-height: 10vh;
+	max-height: 30vh;
+}
+
+.content-bottom{
 	max-height: 60vh;
 	overflow: auto;
 }
 
-.content-bottom{
-	/*style*/
+.scrollbar-custom::-webkit-scrollbar-track {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	background-color: #F5F5F5;
+}
+
+.scrollbar-custom::-webkit-scrollbar {
+	width: 12px;
+	background-color: #F5F5F5; 
+}
+
+.scrollbar-custom::-webkit-scrollbar-thumb {
+	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
+	background-color: grey;
 }
