@@ -4,7 +4,7 @@ use Illuminate\Support\Facades\Schema;
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
 
-class CreateFlyersTable extends Migration
+class CreateDistrictsTable extends Migration
 {
     /**
      * Run the migrations.
@@ -13,12 +13,12 @@ class CreateFlyersTable extends Migration
      */
     public function up()
     {
-        Schema::create('flyers', function (Blueprint $table) {
+        Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
             $table->string('name');
-            $table->decimal('price');
-            $table->decimal('min_amount');
-            $table->decimal('max_amount');      
+            $table->string('area');
+            $table->unsignedInteger('amount')->nullable();
+            $table->string('map')->nullable();
             $table->timestamps();
         });
     }
@@ -30,6 +30,6 @@ class CreateFlyersTable extends Migration
      */
     public function down()
     {
-        Schema::dropIfExists('flyers');
+        Schema::dropIfExists('districts');
     }
 }

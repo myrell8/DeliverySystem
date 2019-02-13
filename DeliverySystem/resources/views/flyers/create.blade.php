@@ -18,12 +18,12 @@
             <input type="text" name="price" class="form-control {{ $errors->has('price') ? 'border-danger' : '' }}" placeholder="Prijs" required>
           </div>
           <div class="form-group">
-            <h4>Maximaal bedrag</h4>
-            <input type="text" name="max_amount" class="form-control {{ $errors->has('max_amount') ? 'border-danger' : '' }}" placeholder="Maximaal bedrag" required>
-          </div>
-          <div class="form-group">
             <h4>Minimaal bedrag</h4>
             <input type="text" name="min_amount" class="form-control {{ $errors->has('min_amount') ? 'border-danger' : '' }}" placeholder="Minimaal bedrag" required>
+          </div>
+          <div class="form-group">
+            <h4>Maximaal bedrag</h4>
+            <input type="text" name="max_amount" class="form-control {{ $errors->has('max_amount') ? 'border-danger' : '' }}" placeholder="Maximaal bedrag" required>
           </div>
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>

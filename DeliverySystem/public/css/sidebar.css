@@ -48,6 +48,6 @@
     display: block;
 }
 #sidebar ul li a:hover {
-    color: #grey;
-    background: #fff;
+    color: grey;
+    background: #F8FAFC;
 }

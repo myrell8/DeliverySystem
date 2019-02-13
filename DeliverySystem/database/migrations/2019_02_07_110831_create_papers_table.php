@@ -17,7 +17,7 @@ class CreatePapersTable extends Migration
             $table->increments('id');
             $table->string('name');
             $table->string('delivery_day');
-            $table->double('price');
+            $table->decimal('price');
             $table->timestamps();
         });
     }

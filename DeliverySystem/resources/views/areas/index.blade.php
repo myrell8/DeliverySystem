@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="content-top">
-      <span class="h1">Folders</span>
+      <span class="h1">Wijken</span>
       <div class="row m-0 mt-3 mb-4 justify-content-between">
-          <a class="btn btn-primary" href="/flyers/create" role="button">Folder toevoegen</a>
+          <a class="btn btn-primary" href="/areas/create" role="button">Wijk toevoegen</a>
 
           <div class="input-group w-25">
             <input type="text" class="form-control" placeholder="Zoeken op naam" aria-describedby="basic-addon2">
@@ -18,25 +18,21 @@
           <thead>
             <tr>
               <th scope="col">Naam</th>
-              <th scope="col">Prijs</th>
-              <th scope="col">Bonus(Minimaal)</th>
-              <th scope="col">Bonus(Maximaal)</th>
+              <th scope="col">Stad</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
             </tr>
           </thead>
           <tbody>
-            @foreach($flyers as $flyer)
+            @foreach($areas as $area)
             <tr>
-              <th scope="row">{{ $flyer->name }}</th>
-              <td>€{{ $flyer->price }}</td>
-              <td>€{{ $flyer->min_amount }}</td>
-              <td>€{{ $flyer->max_amount }}</td>
-              <td><a href="/flyers/{{ $flyer->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
-              <td><a href="/flyers/{{ $flyer->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
+              <th scope="row">{{ $area->name }}</th>
+              <td>{{ $area->city }}</td>
+              <td><a href="/areas/{{ $area->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
+              <td><a href="/areas/{{ $area->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>
-                <form method="POST" action="/flyers/{{ $flyer->id }}" class="w-100 text-center">
+                <form method="POST" action="/areas/{{ $area->id }}" class="w-100 text-center">
                   @method('DELETE')
                   @csrf
                   <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Are you sure?')">Verwijder</button>

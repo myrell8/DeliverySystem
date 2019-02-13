@@ -20,3 +20,11 @@ Auth::routes();
 Route::resource('papers', 'PapersController');
 
 Route::resource('flyers', 'FlyersController');
+
+Route::resource('districts', 'DistrictsController');
+
+Route::resource('areas', 'AreasController');
+
+Route::resource('streets', 'StreetsController');
+
+Route::resource('addresses', 'AddressesController');

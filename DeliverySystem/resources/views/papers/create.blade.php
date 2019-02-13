@@ -16,7 +16,16 @@
 
           <div class="form-group">
             <h4>Bezorgdag</h4>
-            <input type="text" name="delivery_day" class="form-control {{ $errors->has('delivery_day') ? 'border-danger' : '' }}" placeholder="Bezorgdag" required>
+            <select name="delivery_day" class="form-control {{ $errors->has('delivery_day') ? 'border-danger' : '' }}" >
+              <option></option>
+              <option>Maandag</option>
+              <option>Dinsdag</option>
+              <option>Woensdag</option>
+              <option>Donderdag</option>
+              <option>Vrijdag</option>
+              <option>Zaterdag</option>
+              <option>Zondag</option>
+            </select>
           </div>
 
           <div class="form-group">

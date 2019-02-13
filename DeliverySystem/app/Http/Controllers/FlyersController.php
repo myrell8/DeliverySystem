@@ -57,8 +57,8 @@ class FlyersController extends Controller
          return request()->validate([
             'name' => ['required', 'min:3'],
             'price' => ['required', 'numeric'],
-            'max_amount' => ['required', 'numeric'],
-            'min_amount' => ['required', 'numeric', 'lt:max_amount']
+            'min_amount' => ['required', 'numeric', 'lt:max_amount'],
+            'max_amount' => ['required', 'numeric']
          ]);
       } 
 }

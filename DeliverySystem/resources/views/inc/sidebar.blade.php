@@ -13,33 +13,42 @@
     <ul class="list-unstyled components">
         <span>Menu</span>
         <li>
-            <a href="/papers" class="nav-link <?php if($currenturl == "papers"){ echo "active"; } ?>">Kranten</a>
+            <a href="/papers" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Kranten</a>
         </li>
         <li>
-            <a href="/flyers" class="nav-link <?php if($currenturl == "flyers"){ echo "active"; } ?>">Folders</a>
+            <a href="/flyers" class="nav-link {{ $currenturl == "flyers" ? 'active' : '' }}">Folders</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "areas"){ echo "active"; } ?>">Wijken</a>
+            <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Routes</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "vacancies"){ echo "active"; } ?>">Vacatures</a>
+            <a href="/areas" class="nav-link {{ $currenturl == "areas" ? 'active' : '' }}">Wijken</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "couriers"){ echo "active"; } ?>">Koeriers</a>
+            <a href="/streets" class="nav-link {{ $currenturl == "streets" ? 'active' : '' }}">Straten</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "complaints"){ echo "active"; } ?>">Klachten</a>
+            <a href="/addresses" class="nav-link {{ $currenturl == "addresses" ? 'active' : '' }}">Adressen</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Vacatures</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Koeriers</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Klachten</a>
         </li>
 
         <span>Gebruikers</span>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "users"){ echo "active"; } ?>">Admins</a>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Admins</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "deliverers"){ echo "active"; } ?>">Bezorgers</a>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Bezorgers</a>
         </li>
         <li>
-            <a href="#" class="nav-link <?php if($currenturl == "mail"){ echo "active"; } ?>">Email bezorgers</a>
+            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Email bezorgers</a>
         </li>
     </ul>
 </nav>

@@ -18,7 +18,15 @@
 
           <div class="form-group">
             <h4>Bezorgdag</h4>
-            <input type="text" name="delivery_day" class="form-control {{ $errors->has('delivery_day') ? 'border-danger' : '' }}" placeholder="Bezorgdag" value="{{ $paper->delivery_day }}" required>
+            <select name="delivery_day" class="form-control {{ $errors->has('delivery_day') ? 'border-danger' : '' }}" value="{{ $paper->delivery_day }}">
+              <option {{ $paper->delivery_day == "Maandag" ? 'selected' : '' }}>Maandag</option>
+              <option {{ $paper->delivery_day == "Dinsdag" ? 'selected' : '' }}>Dinsdag</option>
+              <option {{ $paper->delivery_day == "Woensdag" ? 'selected' : '' }}>Woensdag</option>
+              <option {{ $paper->delivery_day == "Donderdag" ? 'selected' : '' }}>Donderdag</option>
+              <option {{ $paper->delivery_day == "Vrijdag" ? 'selected' : '' }}>Vrijdag</option>
+              <option {{ $paper->delivery_day == "Zaterdag" ? 'selected' : '' }}>Zaterdag</option>
+              <option {{ $paper->delivery_day == "Zondag" ? 'selected' : '' }}>Zondag</option>
+            </select>
           </div>
 
           <div class="form-group">
