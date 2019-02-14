@@ -40,7 +40,7 @@ class StreetsController extends Controller
     {
         $areas = Area::all();
 
-        return view('streets.edit', compact('street'), compact('areas'));
+        return view('streets.edit', compact('street', 'areas'));
     }
 
     public function update(Street $street)

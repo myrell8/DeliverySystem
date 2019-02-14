@@ -31,24 +31,24 @@
             <a href="/addresses" class="nav-link {{ $currenturl == "addresses" ? 'active' : '' }}">Adressen</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Vacatures</a>
+            <a href="#" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Koeriers</a>
+            <a href="#" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Klachten</a>
+            <a href="#" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
         </li>
 
         <span>Gebruikers</span>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Admins</a>
+            <a href="#" class="nav-link {{ $currenturl == "admins" ? 'active' : '' }}">Admins</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Bezorgers</a>
+            <a href="#" class="nav-link {{ $currenturl == "delivery" ? 'active' : '' }}">Bezorgers</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Email bezorgers</a>
+            <a href="#" class="nav-link {{ $currenturl == "emails" ? 'active' : '' }}">Email bezorgers</a>
         </li>
     </ul>
 </nav>

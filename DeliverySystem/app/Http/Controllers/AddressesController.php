@@ -22,14 +22,14 @@ class AddressesController extends Controller
 
         $streets = Street::all();
 
-        return view('addresses.create', compact('areas'), compact('streets'));
+        return view('addresses.create', compact('areas', 'streets'));
     }
 
     public function store()
     {
         $attributes = $this->validateAddress();
 
-        $address = address::create($attributes);
+        $address = Address::create($attributes);
 
         return redirect('/addresses');
     }
@@ -41,9 +41,11 @@ class AddressesController extends Controller
 
     public function edit(Address $address)
     {
+        $areas = Area::all();
 
+        $streets = Street::all();
 
-        return view('addresses.edit', compact('address'));
+        return view('addresses.edit', compact('address', 'areas', 'streets'));
     }
 
     public function update(Address $address)

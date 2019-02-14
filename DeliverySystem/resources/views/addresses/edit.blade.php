@@ -2,41 +2,46 @@
 
 @section('content')
     <div class="content-top">
-      <span class="h1">Straat wijzigen</span>
+      <span class="h1">Adres toevoegen</span>
     </div>
 
     <div class="content-bottom">
       <div class="container mt-4">
-        <form method="POST" action="/streets/{{ $street->id }}" class="w-75 m-auto">
+        <form method="POST" action="/addresses" class="w-75 m-auto">
           @method('PATCH')
           @csrf
           <div class="form-group">
-            <h4>Naam straat</h4>
-            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" placeholder="Naam straat" value="{{ $street->name }}" required>
+            <h4>Wijk</h4>
+            <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" disabled>
+              <option></option>
+              @foreach($areas as $area)
+                <option value="{{ $area->id }}">{{ $area->name }}</option>
+              @endforeach
+            </select>
           </div>
 
           <div class="form-group">
-            <h4>Wijk</h4>
-            <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
+            <h4>Straat</h4>
+            <select name="street_id" class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
               <option></option>
-              @foreach($areas as $area)
-                @if($street->area_id == $area->id)
-                <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
+              @foreach($streets as $street)
+                @if($address->street_id == $street->id)
+                  <option value="{{ $street->id }}" selected>{{ $street->name }}</option>
                 @else
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                  <option value="{{ $street->id }}">{{ $street->name }}</option>
                 @endif
               @endforeach
             </select>
           </div>
 
           <div class="form-group">
-            <h4>Postcode</h4>
-            <input type="text" name="areacode" class="form-control {{ $errors->has('areacode') ? 'border-danger' : '' }}" placeholder="Postcode" value="{{ $street->areacode }}" required>
+            <h4>Huisnummer</h4>
+            <input type="text" name="house_number" class="form-control {{ $errors->has('house_number') ? 'border-danger' : '' }}" placeholder="Huisnummer" required>
           </div>
 
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
-            <button type="submit" class="btn btn-primary w-25">Wijzig straat</button>
+            <button type="submit" class="btn btn-primary w-25">Voeg adres toe</button>
           </div>
         </form>
 

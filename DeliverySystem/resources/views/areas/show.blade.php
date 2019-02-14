@@ -8,8 +8,7 @@
 
     <div class="content-bottom scrollbar-custom">
     	<p>Naam: {{ $area->name }}</p>
-    	<p>Wijk: {{ $area->area }}</p>
-    	<p>Map: {{ $area->map }}</p>
+    	<p>Stad: {{ $area->city }}</p>
     	<a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
     </div> 
 
