@@ -35,6 +35,16 @@
           </div>
 
           <div class="form-group">
+            <h4>Bezorger toewijzen</h4>
+            <select name="deliverer_id" class="form-control {{ $errors->has('deliverer_id') ? 'border-danger' : '' }}" >
+              <option></option>
+              @foreach($deliverers as $deliverer)
+                <option value="{{ $deliverer->id }}" {{ $deliverer->id == $district->deliverer->id ? 'selected' : '' }}>{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
             <h4>Map (Afbeelding)</h4>
             <input type="text" name="price" class="form-control" placeholder="Image upload" disabled>
           </div>

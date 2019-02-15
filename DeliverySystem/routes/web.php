@@ -28,3 +28,5 @@ Route::resource('areas', 'AreasController');
 Route::resource('streets', 'StreetsController');
 
 Route::resource('addresses', 'AddressesController');
+
+Route::resource('deliverers', 'DeliverersController');

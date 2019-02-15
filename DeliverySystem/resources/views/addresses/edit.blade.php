@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-top">
-      <span class="h1">Adres toevoegen</span>
+      <span class="h1">Adres wijzigen</span>
     </div>
 
     <div class="content-bottom">
@@ -36,7 +36,7 @@
 
           <div class="form-group">
             <h4>Huisnummer</h4>
-            <input type="text" name="house_number" class="form-control {{ $errors->has('house_number') ? 'border-danger' : '' }}" placeholder="Huisnummer" required>
+            <input type="text" name="house_number" class="form-control {{ $errors->has('house_number') ? 'border-danger' : '' }}" placeholder="Huisnummer" value="{{ $address->house_number }}" required>
           </div>
 
           <div class="form-group d-flex justify-content-between">

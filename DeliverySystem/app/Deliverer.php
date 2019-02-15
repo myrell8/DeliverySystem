@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class District extends Model
+class Deliverer extends Model
 {
     protected $guarded = [];
 
-    public function deliverer()
+    public function district()
     {
-    	return $this->belongsTo(Deliverer::class);
+    	return $this->hasMany(District::class);
     }
 }

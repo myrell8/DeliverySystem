@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\District;
+use App\Deliverer;
 
 class DistrictsController extends Controller
 {
@@ -11,12 +12,16 @@ class DistrictsController extends Controller
     {
         $districts = District::all();
 
-        return view('districts.index', compact('districts'));
+        $deliverers = Deliverer::all();
+
+        return view('districts.index', compact('districts', 'deliverers'));
     }
 
     public function create()
     {
-        return view('districts.create');
+        $deliverers = Deliverer::all();
+
+        return view('districts.create', compact('deliverers'));
     }
 
     public function store()
@@ -35,7 +40,9 @@ class DistrictsController extends Controller
 
     public function edit(District $district)
     {
-        return view('districts.edit', compact('district'));
+        $deliverers = Deliverer::all();
+
+        return view('districts.edit', compact('district', 'deliverers'));
     }
 
     public function update(District $district)
@@ -57,6 +64,7 @@ class DistrictsController extends Controller
          return request()->validate([
             'name' => ['required', 'min:3'],
             'area' => ['required', 'min:3'],
+            'deliverer_id' => ['numeric'],
          ]);
       }
 }

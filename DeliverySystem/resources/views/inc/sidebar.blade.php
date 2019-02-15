@@ -22,6 +22,14 @@
             <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Routes</a>
         </li>
         <li>
+            <a href="#" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
+        </li>
+
+        <span>Regio</span>
+        <li>
             <a href="/areas" class="nav-link {{ $currenturl == "areas" ? 'active' : '' }}">Wijken</a>
         </li>
         <li>
@@ -29,26 +37,20 @@
         </li>
         <li>
             <a href="/addresses" class="nav-link {{ $currenturl == "addresses" ? 'active' : '' }}">Adressen</a>
-        </li>
-        <li>
-            <a href="#" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
-        </li>
-        <li>
-            <a href="#" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>
-        </li>
-        <li>
-            <a href="#" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
-        </li>
+        </li>     
 
         <span>Gebruikers</span>
         <li>
             <a href="#" class="nav-link {{ $currenturl == "admins" ? 'active' : '' }}">Admins</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "delivery" ? 'active' : '' }}">Bezorgers</a>
+            <a href="/deliverers" class="nav-link {{ $currenturl == "deliverers" ? 'active' : '' }}">Bezorgers</a>
         </li>
         <li>
             <a href="#" class="nav-link {{ $currenturl == "emails" ? 'active' : '' }}">Email bezorgers</a>
+        </li>
+        <li>
+            <a href="#" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>
         </li>
     </ul>
 </nav>

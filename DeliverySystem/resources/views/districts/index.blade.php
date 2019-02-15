@@ -19,6 +19,7 @@
             <tr>
               <th scope="col">Naam</th>
               <th scope="col">Wijk</th>
+              <th scope="col">Bezorger</th>
               <th scope="col">Aantal</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
@@ -30,6 +31,7 @@
             <tr>
               <th scope="row">{{ $district->name }}</th>
               <td>{{ $district->area }}</td>
+              <td>{{ $district->deliverer->firstname }} {{ $district->deliverer->lastname }}</td>
               <td>{{ $district->amount }}</td>
               <td><a href="/districts/{{ $district->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/districts/{{ $district->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>

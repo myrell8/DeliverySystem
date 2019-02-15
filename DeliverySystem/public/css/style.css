@@ -8,11 +8,11 @@
 
 .content-top{
 	min-height: 10vh;
-	max-height: 30vh;
+	max-height: 25vh;
 }
 
 .content-bottom{
-	max-height: 60vh;
+	max-height: 65vh;
 	overflow: auto;
 }
 
@@ -29,4 +29,8 @@
 .scrollbar-custom::-webkit-scrollbar-thumb {
 	-webkit-box-shadow: inset 0 0 6px rgba(0, 0, 0, 0.1);
 	background-color: grey;
+}
+
+.no-resize{
+	resize: none;
 }
