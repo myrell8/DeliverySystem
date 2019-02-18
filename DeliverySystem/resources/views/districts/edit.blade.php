@@ -17,20 +17,15 @@
 
           <div class="form-group">
             <h4>Wijk</h4>
-            <select name="area" class="form-control {{ $errors->has('area') ? 'border-danger' : '' }}" >
+            <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
-              <option {{ $district->area == "Brandevoort" ? 'selected' : '' }}>Brandevoort</option>
-              <option {{ $district->area == "Mierlo-Hout" ? 'selected' : '' }}>Mierlo-Hout</option>
-              <option {{ $district->area == "Stiphout" ? 'selected' : '' }}>Stiphout</option>
-              <option {{ $district->area == "Helmond-West" ? 'selected' : '' }}>Helmond-West</option>
-              <option {{ $district->area == "Helmond-Noord" ? 'selected' : '' }}>Helmond-Noord</option>
-              <option {{ $district->area == "Centrum" ? 'selected' : '' }}>Centrum</option>
-              <option {{ $district->area == "Helmond-Oost" ? 'selected' : '' }}>Helmond-Oost</option>
-              <option {{ $district->area == "Industrieterrein" ? 'selected' : '' }}>Industrieterrein</option>
-              <option {{ $district->area == "Suytkade" ? 'selected' : '' }}>Suytkade</option>
-              <option {{ $district->area == "Brouwhuis" ? 'selected' : '' }}>Brouwhuis</option>
-              <option {{ $district->area == "Rijpelberg" ? 'selected' : '' }}>Rijpelberg</option>
-              <option {{ $district->area == "Dierdonk" ? 'selected' : '' }}>Dierdonk</option>
+              @foreach($areas as $area)
+                @if($district->area_id == $area->id)
+                <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
+                @else
+                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @endif
+              @endforeach
             </select>
           </div>
 

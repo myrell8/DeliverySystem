@@ -5,6 +5,8 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\District;
 use App\Deliverer;
+use App\Area;
+use App\Paper;
 
 class DistrictsController extends Controller
 {
@@ -14,14 +16,22 @@ class DistrictsController extends Controller
 
         $deliverers = Deliverer::all();
 
-        return view('districts.index', compact('districts', 'deliverers'));
+        $areas = Area::all();
+
+        $papers = Paper::all();
+
+        return view('districts.index', compact('districts', 'deliverers', 'areas', 'papers'));
     }
 
     public function create()
     {
         $deliverers = Deliverer::all();
 
-        return view('districts.create', compact('deliverers'));
+        $areas = Area::all();
+
+        $papers = Paper::all();
+
+        return view('districts.create', compact('deliverers', 'areas', 'papers'));
     }
 
     public function store()
@@ -42,7 +52,11 @@ class DistrictsController extends Controller
     {
         $deliverers = Deliverer::all();
 
-        return view('districts.edit', compact('district', 'deliverers'));
+        $areas = Area::all();
+
+        $papers = Paper::all();
+
+        return view('districts.edit', compact('district', 'deliverers', 'areas', 'papers'));
     }
 
     public function update(District $district)
@@ -63,7 +77,8 @@ class DistrictsController extends Controller
       {
          return request()->validate([
             'name' => ['required', 'min:3'],
-            'area' => ['required', 'min:3'],
+            'area_id' => ['required', 'numeric'],
+            'paper_id' => [],
             'deliverer_id' => ['numeric'],
          ]);
       }

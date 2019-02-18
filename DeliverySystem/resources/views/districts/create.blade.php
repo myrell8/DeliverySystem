@@ -15,21 +15,22 @@
           </div>
 
           <div class="form-group">
-            <h4>Wijk</h4>
-            <select name="area" class="form-control {{ $errors->has('area') ? 'border-danger' : '' }}" >
+            <h4>Krant</h4>
+            <select name="paper_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
-              <option>Brandevoort</option>
-              <option>Mierlo-Hout</option>
-              <option>Stiphout</option>
-              <option>Helmond-West</option>
-              <option>Helmond-Noord</option>
-              <option>Centrum</option>
-              <option>Helmond-Oost</option>
-              <option>Industrieterrein</option>
-              <option>Suytkade</option>
-              <option>Brouwhuis</option>
-              <option>Rijpelberg</option>
-              <option>Dierdonk</option>
+              @foreach($papers as $paper)
+                <option value="{{ $paper->id }}">{{ $paper->name }}</option>
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
+            <h4>Wijk</h4>
+            <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
+              <option></option>
+              @foreach($areas as $area)
+                <option value="{{ $area->id }}">{{ $area->name }}</option>
+              @endforeach
             </select>
           </div>
 

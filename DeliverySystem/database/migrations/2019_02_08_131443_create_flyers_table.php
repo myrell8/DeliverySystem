@@ -15,6 +15,7 @@ class CreateFlyersTable extends Migration
     {
         Schema::create('flyers', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('paper_id')->nullable();
             $table->string('name');
             $table->decimal('price');
             $table->decimal('min_amount');

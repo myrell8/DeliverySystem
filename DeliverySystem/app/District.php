@@ -8,6 +8,16 @@ class District extends Model
 {
     protected $guarded = [];
 
+    public function area()
+    {
+    	return $this->belongsTo(Area::class);
+    }
+
+    public function paper()
+    {
+    	return $this->belongsTo(Paper::class);
+    }
+
     public function deliverer()
     {
     	return $this->belongsTo(Deliverer::class);

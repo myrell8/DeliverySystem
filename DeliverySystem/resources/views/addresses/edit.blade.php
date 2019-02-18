@@ -7,7 +7,7 @@
 
     <div class="content-bottom">
       <div class="container mt-4">
-        <form method="POST" action="/addresses" class="w-75 m-auto">
+        <form method="POST" action="/addresses/{{ $address->id }}" class="w-75 m-auto">
           @method('PATCH')
           @csrf
           <div class="form-group">
@@ -41,7 +41,7 @@
 
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
-            <button type="submit" class="btn btn-primary w-25">Voeg adres toe</button>
+            <button type="submit" class="btn btn-primary w-25">Wijzig adres</button>
           </div>
         </form>
 

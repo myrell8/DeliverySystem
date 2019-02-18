@@ -15,9 +15,10 @@ class CreateDistrictsTable extends Migration
     {
         Schema::create('districts', function (Blueprint $table) {
             $table->increments('id');
+            $table->unsignedInteger('area_id');
+            $table->unsignedInteger('paper_id')->nullable();
             $table->unsignedInteger('deliverer_id')->nullable();
             $table->string('name');
-            $table->string('area');
             $table->unsignedInteger('amount')->nullable();
             $table->string('map')->nullable();
             $table->timestamps();
