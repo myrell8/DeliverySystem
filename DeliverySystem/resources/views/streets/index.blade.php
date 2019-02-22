@@ -20,6 +20,7 @@
               <th scope="col">Naam</th>
               <th scope="col">Postcode</th>
               <th scope="col">Wijk</th>
+              <th scope="col">Route</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -27,11 +28,24 @@
           </thead>
           <tbody>
             @foreach($streets as $street)
-              @isset($street->area->name)
               <tr>
                 <th scope="row">{{ $street->name }}</th>
                 <td>{{ $street->areacode }}</td>
-                <td>{{ $street->area->name }}</td>
+
+                @isset($street->area->name)
+                  <td>{{ $street->area->name }}</td>
+                @endisset
+                @empty($street->area->name)
+                  <td class="text-danger">Error: not found</td>
+                @endempty
+
+                @isset($street->district->name)
+                  <td>{{ $street->district->name }}</td>
+                @endisset
+                @empty($street->district->name)
+                  <td class="text-danger">Error: not found</td>
+                @endempty
+
                 <td><a href="/streets/{{ $street->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
                 <td><a href="/streets/{{ $street->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
                 <td>
@@ -42,23 +56,6 @@
                   </form>
                 </td>
               </tr>
-              @endisset
-              @empty($street->area->name)
-              <tr>
-                <th scope="row">{{ $street->name }}</th>
-                <td>{{ $street->areacode }}</td>
-                <td class="text-danger">Error: not found</td>
-                <td><a href="/streets/{{ $street->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
-                <td><a href="/streets/{{ $street->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
-                <td>
-                  <form method="POST" action="/streets/{{ $street->id }}" class="w-100 text-center">
-                    @method('DELETE')
-                    @csrf
-                    <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Are you sure?')">Verwijder</button>
-                  </form>
-                </td>
-              </tr>
-              @endempty
             @endforeach
           </tbody>
         </table>

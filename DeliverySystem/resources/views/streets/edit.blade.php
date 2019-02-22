@@ -34,6 +34,20 @@
             <input type="text" name="areacode" class="form-control {{ $errors->has('areacode') ? 'border-danger' : '' }}" placeholder="Postcode" value="{{ $street->areacode }}" required>
           </div>
 
+          <div class="form-group">
+            <h4>Route</h4>
+            <select name="district_id" class="form-control {{ $errors->has('district_id') ? 'border-danger' : '' }}" >
+              <option></option>
+              @foreach($districts as $district)
+                @if($street->district_id == $district->id)
+                <option value="{{ $district->id }}" selected>{{ $district->name }}</option>
+                @else
+                <option value="{{ $district->id }}">{{ $district->name }}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
             <button type="submit" class="btn btn-primary w-25">Wijzig straat</button>

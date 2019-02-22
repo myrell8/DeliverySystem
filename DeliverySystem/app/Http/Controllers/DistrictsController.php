@@ -7,6 +7,8 @@ use App\District;
 use App\Deliverer;
 use App\Area;
 use App\Paper;
+use App\Street;
+use App\Address;
 
 class DistrictsController extends Controller
 {
@@ -20,7 +22,11 @@ class DistrictsController extends Controller
 
         $papers = Paper::all();
 
-        return view('districts.index', compact('districts', 'deliverers', 'areas', 'papers'));
+        $streets = Street::all();
+
+        $addresses = Address::all();
+
+        return view('districts.index', compact('districts', 'deliverers', 'areas', 'papers', 'streets', 'addresses'));
     }
 
     public function create()
@@ -79,7 +85,7 @@ class DistrictsController extends Controller
             'name' => ['required', 'min:3'],
             'area_id' => ['required', 'numeric'],
             'paper_id' => [],
-            'deliverer_id' => ['numeric'],
+            'deliverer_id' => [],
          ]);
       }
 }

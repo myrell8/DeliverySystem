@@ -16,6 +16,20 @@
           </div>
 
           <div class="form-group">
+            <h4>Krant</h4>
+            <select name="paper_id" class="form-control {{ $errors->has('paper_id') ? 'border-danger' : '' }}" >
+              <option></option>
+              @foreach($papers as $paper)
+                @if($district->paper_id == $paper->id)
+                <option value="{{ $paper->id }}" selected>{{ $paper->name }}</option>
+                @else
+                <option value="{{ $paper->id }}">{{ $paper->name }}</option>
+                @endif
+              @endforeach
+            </select>
+          </div>
+
+          <div class="form-group">
             <h4>Wijk</h4>
             <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
@@ -34,7 +48,11 @@
             <select name="deliverer_id" class="form-control {{ $errors->has('deliverer_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($deliverers as $deliverer)
-                <option value="{{ $deliverer->id }}" {{ $deliverer->id == $district->deliverer->id ? 'selected' : '' }}>{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+                @if($district->deliverer_id == $deliverer->id)
+                <option value="{{ $deliverer->id }}" selected>{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+                @else
+                <option value="{{ $deliverer->id }}">{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+                @endif   
               @endforeach
             </select>
           </div>

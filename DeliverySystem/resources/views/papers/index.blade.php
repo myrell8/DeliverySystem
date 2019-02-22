@@ -20,10 +20,7 @@
               <th scope="col">Naam</th>
               <th scope="col">Bezorgdag</th>
               <th scope="col">Prijs/krant in €</th>
-              <th scope="col">Folderprijzen</th>
-              <th scope="col">Wijken</th>
-              <th scope="col">Folders deze week</th>
-              <th scope="col">Volgende week</th>
+              <th scope="col">Adressen</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -35,10 +32,7 @@
               <th scope="row">{{ $paper->name }}</th>
               <td>{{ $paper->delivery_day }}</td>
               <td>€{{ $paper->price }}</td>
-              <td>€0.05</td>
-              <td>89</td>
-              <td>n.v.t.</td>
-              <td>n.v.t.</td>
+              <td>189</td>
               <td><a href="/papers/{{ $paper->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/papers/{{ $paper->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>

@@ -28,12 +28,30 @@
         </thead>
         <tbody>
           @foreach($addresses as $address)
-            @isset($address->street->area->name)
             <tr>
-              <th scope="row">{{ $address->street->name }}</th>
+              @isset($address->street->name)
+                <th scope="row">{{ $address->street->name }}</td>
+              @endisset
+              @empty($address->street->name)
+                <td class="text-danger">Error: not found</td>
+              @endempty
+
               <td>{{ $address->house_number }}</td>
-              <td>{{ $address->street->areacode }}</td>
-              <td>{{ $address->street->area->name }}</td>
+
+              @isset($address->street->areacode)
+                <td>{{ $address->street->name }}</td>
+              @endisset
+              @empty($address->street->areacode)
+                <td class="text-danger">Error: not found</td>
+              @endempty
+
+              @isset($address->street->area->name)
+                <td>{{ $address->street->area->name }}</td>
+              @endisset
+              @empty($address->street->area->name)
+                <td class="text-danger">Error: not found</td>
+              @endempty
+
               <td><a href="/addresses/{{ $address->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/addresses/{{ $address->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>
@@ -44,24 +62,6 @@
                 </form>
               </td>
             </tr>
-            @endisset
-            @empty($address->street->area->name)
-            <tr>
-              <th scope="row" class="text-danger">Error: not found</th>
-              <td>{{ $address->house_number }}</td>
-              <td class="text-danger">Error: not found</td>
-              <td class="text-danger">Error: not found</td>
-              <td><a href="/addresses/{{ $address->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
-              <td><a href="/addresses/{{ $address->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
-              <td>
-                <form method="POST" action="/address/{{ $address->id }}" class="w-100 text-center">
-                  @method('DELETE')
-                  @csrf
-                  <button type="submit" class="btn btn-danger w-100" onclick="return confirm('Are you sure?')">Verwijder</button>
-                </form>
-              </td>
-            </tr>
-            @endempty
           @endforeach
         </tbody>
       </table>
