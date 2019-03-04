@@ -16,17 +16,11 @@ class DistrictsController extends Controller
     {
         $districts = District::all();
 
-        $deliverers = Deliverer::all();
-
-        $areas = Area::all();
-
-        $papers = Paper::all();
-
         $streets = Street::all();
 
         $addresses = Address::all();
 
-        return view('districts.index', compact('districts', 'deliverers', 'areas', 'papers', 'streets', 'addresses'));
+        return view('districts.index', compact('districts', 'streets', 'addresses'));
     }
 
     public function create()

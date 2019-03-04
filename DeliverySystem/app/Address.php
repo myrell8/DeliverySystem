@@ -12,4 +12,9 @@ class Address extends Model
     {
     	return $this->belongsTo(Street::class);
     }
+
+    public function complaint()
+    {
+    	return $this->hasMany(Complaint::class);
+    }
 }

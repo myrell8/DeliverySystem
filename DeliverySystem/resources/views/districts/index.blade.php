@@ -44,14 +44,14 @@
                   <td>{{ $district->deliverer->firstname }} {{ $district->deliverer->lastname }}</td>
                 @endisset
                 @empty($district->deliverer->firstname)
-                  <td class="text-danger">Error: not found</td>
+                  <td>-</td>
                 @endempty
 
                 @isset($district->paper->name)
                   <td>{{ $district->paper->name }}</td>
                 @endisset
                 @empty($district->paper->name)
-                  <td class="text-danger">Error: not found</td>
+                  <td>-</td>
                 @endempty
 
                 <?php $street_count = 0; $address_count = 0; ?>

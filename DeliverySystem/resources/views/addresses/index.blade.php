@@ -39,7 +39,7 @@
               <td>{{ $address->house_number }}</td>
 
               @isset($address->street->areacode)
-                <td>{{ $address->street->name }}</td>
+                <td>{{ $address->street->areacode }}</td>
               @endisset
               @empty($address->street->areacode)
                 <td class="text-danger">Error: not found</td>

@@ -22,10 +22,10 @@
             <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Routes</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
+            <a href="/vacancies" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
+            <a href="/complaints" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
         </li>
 
         <span>Regio</span>

@@ -16,7 +16,7 @@
 
           <div class="form-group">
             <h4>Krant</h4>
-            <select name="paper_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
+            <select name="paper_id" class="form-control {{ $errors->has('paper_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($papers as $paper)
                 <option value="{{ $paper->id }}">{{ $paper->name }}</option>
