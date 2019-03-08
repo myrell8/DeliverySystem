@@ -41,13 +41,13 @@
 
         <span>Gebruikers</span>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "admins" ? 'active' : '' }}">Admins</a>
+            <a href="/admins" class="nav-link {{ $currenturl == "admins" ? 'active' : '' }}">Admins</a>
         </li>
         <li>
             <a href="/deliverers" class="nav-link {{ $currenturl == "deliverers" ? 'active' : '' }}">Bezorgers</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "emails" ? 'active' : '' }}">Email bezorgers</a>
+            <a href="/mails" class="nav-link {{ $currenturl == "mails" ? 'active' : '' }}">Email bezorgers</a>
         </li>
         <li>
             <a href="#" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>

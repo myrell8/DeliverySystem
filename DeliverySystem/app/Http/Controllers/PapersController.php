@@ -4,6 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Paper;
+use App\Address;
 
 class PapersController extends Controller
 {
@@ -11,7 +12,9 @@ class PapersController extends Controller
     {
     	$papers = Paper::all();
 
-    	return view('papers.index', compact('papers'));
+        $addresses = Address::all();
+
+    	return view('papers.index', compact('papers', 'addresses'));
     }
 
     public function create()

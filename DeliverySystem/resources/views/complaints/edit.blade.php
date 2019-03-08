@@ -12,7 +12,7 @@
           @csrf
           <div class="form-group">
             <h4>Wijk</h4>
-            <select name="area_id" disabled="" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
+            <select name="area_id" disabled class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($areas as $area)
                 <option value="{{ $area->id }}">{{ $area->name }}</option>

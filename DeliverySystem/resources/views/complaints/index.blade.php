@@ -24,7 +24,6 @@
               <th scope="col">Week</th>
               <th scope="col">Bezorger</th>
               <th scope="col">Type</th>
-              <th scope="col">Reacties</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -33,14 +32,13 @@
           <tbody>
             @foreach($complaints as $complaint)
               <tr>
-                <td scope="row">{{ $complaint->updated_at }}</td>
+                <td scope="row">{{ $complaint->updated_at->format('d M Y') }}</td>
                 <td>{{ $complaint->address->street->area->name }}</td>
                 <td>{{ $complaint->address->street->name }} {{ $complaint->address->house_number }}</td>
                 <td>{{ $complaint->year }}</td>
                 <td>{{ $complaint->week }}</td>
                 <td>{{ $complaint->address->street->district->deliverer->firstname }} {{ $complaint->address->street->district->deliverer->lastname }}</td>
                 <td>{{ $complaint->type }}</td>
-                <td>0</td>
 
                 <td><a href="/complaints/{{ $complaint->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
                 <td><a href="/complaints/{{ $complaint->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>

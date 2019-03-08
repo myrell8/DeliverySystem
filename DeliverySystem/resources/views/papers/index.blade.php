@@ -32,7 +32,16 @@
               <th scope="row">{{ $paper->name }}</th>
               <td>{{ $paper->delivery_day }}</td>
               <td>€{{ $paper->price }}</td>
-              <td>189</td>
+
+              <?php $address_count = 0; ?>
+              @foreach($addresses as $address)
+                @if($address->street->district->paper_id == $paper->id)
+                  <?php $address_count = $address_count + 1 ?>
+                @endif
+              @endforeach
+
+              <td>{{ $address_count }}</td>
+              
               <td><a href="/papers/{{ $paper->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/papers/{{ $paper->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>

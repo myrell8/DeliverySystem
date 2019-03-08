@@ -44,9 +44,9 @@
               <div class="col">
                 <h4>Jaar</h4>
                 <select name="year" class="form-control {{ $errors->has('year') ? 'border-danger' : '' }}" >
-                  <option value="<?php echo date("Y")-1 ?>"><?php echo date("Y")-1; ?></option>
-                  <option selected value="<?php echo date("Y") ?>"><?php echo date("Y"); ?></option>
-                  <option value="<?php echo date("Y")+1 ?>"><?php echo date("Y")+1; ?></option>
+                  <option><?php echo date("Y")-1; ?></option>
+                  <option selected><?php echo date("Y"); ?></option>
+                  <option><?php echo date("Y")+1; ?></option>
                 </select>
               </div>
               <div class="col">
