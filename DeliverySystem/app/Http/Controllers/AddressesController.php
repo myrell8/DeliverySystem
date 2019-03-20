@@ -69,4 +69,12 @@ class AddressesController extends Controller
             'house_number' => ['required']
          ]);
       }
+
+    public function getStreets(Request $request) {
+        $areaID = $request->areaID;
+
+        $streets = Street::where('area_id', '=', $areaID)->get();
+
+        echo json_encode($streets); 
+    }
 }

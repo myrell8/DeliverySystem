@@ -20,7 +20,9 @@
               <th scope="col">Naam</th>
               <th scope="col">Bezorgdag</th>
               <th scope="col">Prijs/krant in €</th>
+              <th scope="col">Wijken</th>
               <th scope="col">Adressen</th>
+              <th scope="col">Folders deze week</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -33,14 +35,24 @@
               <td>{{ $paper->delivery_day }}</td>
               <td>&euro;{{ $paper->price }}</td>
 
-              <?php $address_count = 0; ?>
-              @foreach($addresses as $address)
-                @if($address->street->district->paper_id == $paper->id)
-                  <?php $address_count = $address_count + 1 ?>
+              <?php $district_count = 0; ?>
+              @foreach($districts as $district)
+                @if($district->paper_id == $paper->id)
+                  <?php $district_count++ ?>
                 @endif
               @endforeach
 
+              <?php $address_count = 0; ?>
+              @foreach($addresses as $address)
+                @if($address->street->district->paper_id == $paper->id)
+                  <?php $address_count++ ?>
+                @endif
+              @endforeach
+
+              <td>{{ $district_count }}</td>
               <td>{{ $address_count }}</td>
+
+              <td>-</td>
               
               <td><a href="/papers/{{ $paper->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/papers/{{ $paper->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>

@@ -11,12 +11,18 @@
 |
 */
 
+// Welcome route
 Route::get('/', function () {
     return view('welcome');
 });
 
+//Authentication routes
 Auth::routes();
 
+// (Ajax) function routes
+Route::post('/getStreets', 'AddressesController@getStreets');
+
+// Resource routes
 Route::resource('papers', 'PapersController')->middleware('auth');
 
 Route::resource('flyers', 'FlyersController')->middleware('auth');

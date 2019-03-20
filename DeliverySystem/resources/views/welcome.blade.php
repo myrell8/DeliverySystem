@@ -81,6 +81,7 @@
                 <div class="links">
                     @auth
                         <a href="{{ url('/papers') }}">Admin panel</a>
+                        <a href="https://www.adcommunicatie.nl/" target="_blank">AdCommunicatie</a>
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();
                                          document.getElementById('logout-form').submit();">
@@ -97,7 +98,7 @@
                             <a href="{{ route('register') }}">Register</a>
                         @endif
 
-                        <a href="https://www.adcommunicatie.nl/">AdCommunicatie</a>
+                        <a href="https://www.adcommunicatie.nl/" target="_blank">AdCommunicatie</a>
                     @endauth
                 </div>
             @endif

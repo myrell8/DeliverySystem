@@ -21,13 +21,8 @@
 
           <div class="form-group">
             <h4>Straat</h4>
-            <select id="street_select" name="street_id" class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
-              <option></option>
-              @foreach($streets as $street)
-                @if($street->area->id)
-                  <option value="{{ $street->id }}">{{ $street->name }}</option>
-                @endif
-              @endforeach
+            <select id="street_select" name="street_id" disabled class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
+              <option>Selecteer locatie</option>
             </select>
           </div>
 
