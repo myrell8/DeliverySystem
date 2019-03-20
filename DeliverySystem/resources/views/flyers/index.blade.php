@@ -30,9 +30,9 @@
             @foreach($flyers as $flyer)
             <tr>
               <th scope="row">{{ $flyer->name }}</th>
-              <td>€{{ $flyer->price }}</td>
-              <td>€{{ $flyer->min_amount }}</td>
-              <td>€{{ $flyer->max_amount }}</td>
+              <td>&euro;{{ $flyer->price }}</td>
+              <td>&euro;{{ $flyer->min_amount }}</td>
+              <td>&euro;{{ $flyer->max_amount }}</td>
               <td><a href="/flyers/{{ $flyer->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/flyers/{{ $flyer->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>

@@ -55,7 +55,7 @@ class FlyersController extends Controller
     protected function validateFlyer()
       {
          return request()->validate([
-            'name' => ['required', 'min:3'],
+            'name' => ['required', 'min:3', 'max:191'],
             'price' => ['required', 'numeric'],
             'min_amount' => ['required', 'numeric', 'lt:max_amount'],
             'max_amount' => ['required', 'numeric']

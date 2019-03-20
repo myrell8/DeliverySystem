@@ -18,7 +18,7 @@
           <thead>
             <tr>
               <th scope="col">Aangepast op</th>
-              <th scope="col">Wijk</th>
+              <th scope="col">Locatie</th>
               <th scope="col">Adres</th>
               <th scope="col">Jaar</th>
               <th scope="col">Week</th>

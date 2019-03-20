@@ -20,7 +20,7 @@
             <th scope="col">Straat</th>
             <th scope="col">Huisnummer</th>
             <th scope="col">Postcode</th>
-            <th scope="col">Wijk</th>
+            <th scope="col">Locatie</th>
             <th scope="col" class="form-button-column">Info</th>
             <th scope="col" class="form-button-column">Wijzig</th>
             <th scope="col" class="form-button-column">Verwijder</th>

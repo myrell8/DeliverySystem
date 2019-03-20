@@ -58,8 +58,8 @@ class PapersController extends Controller
   	protected function validatePaper()
       {
          return request()->validate([
-            'name' => ['required', 'min:3'],
-            'delivery_day' => ['required', 'min:3'],
+            'name' => ['required', 'min:3', 'max:191'],
+            'delivery_day' => ['required', 'min:3', 'max:191'],
             'price' => ['required', 'numeric']
          ]);
       } 

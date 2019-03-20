@@ -16,7 +16,7 @@
           <thead>
             <tr>
               <th scope="col">Naam</th>
-              <th scope="col">Wijk</th>
+              <th scope="col">Locatie</th>
               <th scope="col">Bezorger</th>
               <th scope="col">Krant</th>
               <th scope="col">Straten</th>

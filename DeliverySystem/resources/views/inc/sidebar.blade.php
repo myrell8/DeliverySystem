@@ -19,7 +19,7 @@
             <a href="/flyers" class="nav-link {{ $currenturl == "flyers" ? 'active' : '' }}">Folders</a>
         </li>
         <li>
-            <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Routes</a>
+            <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Wijken</a>
         </li>
         <li>
             <a href="/vacancies" class="nav-link {{ $currenturl == "vacancies" ? 'active' : '' }}">Vacatures</a>
@@ -30,7 +30,7 @@
 
         <span>Regio</span>
         <li>
-            <a href="/areas" class="nav-link {{ $currenturl == "areas" ? 'active' : '' }}">Wijken</a>
+            <a href="/areas" class="nav-link {{ $currenturl == "areas" ? 'active' : '' }}">Locaties</a>
         </li>
         <li>
             <a href="/streets" class="nav-link {{ $currenturl == "streets" ? 'active' : '' }}">Straten</a>

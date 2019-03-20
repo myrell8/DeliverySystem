@@ -65,7 +65,7 @@ class StreetsController extends Controller
     protected function validateStreet()
       {
          return request()->validate([
-            'name' => ['required', 'min:3'],
+            'name' => ['required', 'min:3', 'max:191'],
             'area_id' => ['required', 'numeric'],
             'district_id' => [],
             'areacode' => ['required', 'size:6']

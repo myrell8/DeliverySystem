@@ -16,7 +16,7 @@
           </div>
 
           <div class="form-group">
-            <h4>Wijk</h4>
+            <h4>Locatie</h4>
             <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($areas as $area)
@@ -35,7 +35,7 @@
           </div>
 
           <div class="form-group">
-            <h4>Route</h4>
+            <h4>Wijk</h4>
             <select name="district_id" class="form-control {{ $errors->has('district_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($districts as $district)

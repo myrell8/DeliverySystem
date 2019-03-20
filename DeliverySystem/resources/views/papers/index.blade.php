@@ -31,7 +31,7 @@
             <tr>
               <th scope="row">{{ $paper->name }}</th>
               <td>{{ $paper->delivery_day }}</td>
-              <td>€{{ $paper->price }}</td>
+              <td>&euro;{{ $paper->price }}</td>
 
               <?php $address_count = 0; ?>
               @foreach($addresses as $address)

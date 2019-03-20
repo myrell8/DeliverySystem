@@ -11,6 +11,7 @@
 
     <!-- Scripts -->
     <script src="{{ asset('js/app.js') }}" defer></script>
+    <script src="{{ asset('js/main.js') }}" defer></script>
 
     <!-- Fonts -->
     <link rel="dns-prefetch" href="//fonts.gstatic.com">
@@ -80,7 +81,7 @@
 
         <div class="container-fluid p-0 d-flex justify-content-between main-container">
             @include('inc/sidebar')
-            <div class="container-fluid bg-white border p-4 m-4">
+            <div class="container-fluid bg-white border p-4 m-4 body-container">
                 <main>
                     @yield('content')
                 </main>

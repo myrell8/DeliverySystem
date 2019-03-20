@@ -76,7 +76,7 @@ class DistrictsController extends Controller
     protected function validateDistrict()
       {
          return request()->validate([
-            'name' => ['required', 'min:3'],
+            'name' => ['required', 'min:3', 'max:191'],
             'area_id' => ['required', 'numeric'],
             'paper_id' => [],
             'deliverer_id' => [],

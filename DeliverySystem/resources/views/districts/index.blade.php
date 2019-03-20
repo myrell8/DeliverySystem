@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="content-top">
-      <span class="h1">Routes</span>
+      <span class="h1">Wijken</span>
       <div class="row m-0 mt-3 mb-4 justify-content-between">
-          <a class="btn btn-primary" href="/districts/create" role="button">Route toevoegen</a>
+          <a class="btn btn-primary" href="/districts/create" role="button">Wijk toevoegen</a>
 
           <div class="input-group w-25">
             <input type="text" class="form-control" placeholder="Zoeken op naam" aria-describedby="basic-addon2">
@@ -18,7 +18,7 @@
           <thead>
             <tr>
               <th scope="col">Naam</th>
-              <th scope="col">Wijk</th>
+              <th scope="col">Locatie</th>
               <th scope="col">Bezorger</th>
               <th scope="col">Krant</th>
               <th scope="col">Straten</th>

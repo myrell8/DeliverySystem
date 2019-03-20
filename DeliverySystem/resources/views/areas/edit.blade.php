@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-top">
-      <span class="h1">Wijk wijzigen</span>
+      <span class="h1">Locatie wijzigen</span>
     </div>
 
     <div class="content-bottom">
@@ -11,8 +11,8 @@
           @method('PATCH')
           @csrf
           <div class="form-group">
-            <h4>Naam wijk</h4>
-            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" placeholder="Naam wijk" value="{{ $area->name }}" required>
+            <h4>Naam locatie</h4>
+            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" placeholder="Naam locatie" value="{{ $area->name }}" required>
           </div>
 
           <div class="form-group">
@@ -22,7 +22,7 @@
 
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
-            <button type="submit" class="btn btn-primary w-25">Wijzig wijk</button>
+            <button type="submit" class="btn btn-primary w-25">Wijzig locatie</button>
           </div>
         </form>
 

@@ -6,6 +6,10 @@
 	width: 7%;
 }
 
+.body-container{
+	max-width: 84vw;
+}
+
 .content-top{
 	min-height: 10vh;
 	max-height: 25vh;
@@ -14,6 +18,10 @@
 .content-bottom{
 	max-height: 65vh;
 	overflow: auto;
+}
+
+.overflow-wrap{
+	overflow-wrap: break-word;
 }
 
 .scrollbar-custom::-webkit-scrollbar-track {

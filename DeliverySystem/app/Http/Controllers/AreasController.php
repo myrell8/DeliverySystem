@@ -55,8 +55,8 @@ class AreasController extends Controller
     protected function validateArea()
       {
          return request()->validate([
-            'name' => ['required', 'min:3'],
-            'city' => ['required', 'min:3'],
+            'name' => ['required', 'min:3', 'max:191'],
+            'city' => ['required', 'min:3', 'max:191'],
          ]);
       }
 }

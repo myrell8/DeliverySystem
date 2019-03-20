@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-top">
-      <span class="h1">Route toevoegen</span>
+      <span class="h1">Wijk toevoegen</span>
     </div>
 
     <div class="content-bottom">
@@ -10,8 +10,8 @@
         <form method="POST" action="/districts" class="w-75 m-auto">
           @csrf
           <div class="form-group">
-            <h4>Naam route</h4>
-            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" placeholder="Naam route" required>
+            <h4>Naam wijk</h4>
+            <input type="text" name="name" class="form-control {{ $errors->has('name') ? 'border-danger' : '' }}" placeholder="Naam wijk" required>
           </div>
 
           <div class="form-group">
@@ -25,7 +25,7 @@
           </div>
 
           <div class="form-group">
-            <h4>Wijk</h4>
+            <h4>Locatie</h4>
             <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($areas as $area)
@@ -51,7 +51,7 @@
 
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
-            <button type="submit" class="btn btn-primary w-25">Voeg route toe</button>
+            <button type="submit" class="btn btn-primary w-25">Voeg wijk toe</button>
           </div>
         </form>
 

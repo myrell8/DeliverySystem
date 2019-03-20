@@ -3,13 +3,13 @@
 @section('content')
 
 	<div class="content-top">
-      <span class="h1">{{ $paper->name }}</span>
+      <span class="h1 overflow-wrap">{{ $mail->subject }}</span>
     </div>
 
     <div class="content-bottom scrollbar-custom">
-    	<p>Naam: {{ $paper->name }}</p>
-    	<p>Bezorgdag: {{ $paper->delivery_day }}</p>
-    	<p>Prijs: {{ $paper->price }}</p>
+    	<p class="overflow-wrap">Onderwerp: {{ $mail->subject }}</p>
+    	<p class="overflow-wrap">Inhoud: {{ $mail->body }}</p>
+    	<p class="overflow-wrap">Verstuurd op: {{ $mail->created_at }}</p>
     	<a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
     </div> 
 

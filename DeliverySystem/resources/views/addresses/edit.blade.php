@@ -11,7 +11,7 @@
           @method('PATCH')
           @csrf
           <div class="form-group">
-            <h4>Wijk</h4>
+            <h4>Locatie</h4>
             <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" disabled>
               <option></option>
               @foreach($areas as $area)

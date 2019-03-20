@@ -1,6 +1,6 @@
 #sidebar {
-    min-width: 250px;
-    max-width: 250px;
+    min-width: 13vw;
+    max-width: 13vw;
     position: relative;
     bottom: 0;
     left: 0;
@@ -13,6 +13,7 @@
 .nav-link{
   color: inherit;
 }
+
 .nav-link:hover {
     color: grey;
     text-decoration: none;
@@ -47,6 +48,7 @@
     font-size: 1.1em;
     display: block;
 }
+
 #sidebar ul li a:hover {
     color: grey;
     background: #F8FAFC;

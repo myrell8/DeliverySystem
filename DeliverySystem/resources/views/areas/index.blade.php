@@ -3,9 +3,9 @@
 @section('content')
 
     <div class="content-top">
-      <span class="h1">Wijken</span>
+      <span class="h1">Locaties</span>
       <div class="row m-0 mt-3 mb-4 justify-content-between">
-          <a class="btn btn-primary" href="/areas/create" role="button">Wijk toevoegen</a>
+          <a class="btn btn-primary" href="/areas/create" role="button">Locatie toevoegen</a>
 
           <div class="input-group w-25">
             <input type="text" class="form-control" placeholder="Zoeken op naam" aria-describedby="basic-addon2">
