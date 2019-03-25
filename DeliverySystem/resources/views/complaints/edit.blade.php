@@ -11,34 +11,38 @@
           @method('PATCH')
           @csrf
           <div class="form-group">
-            <h4>Wijk</h4>
-            <select name="area_id" disabled class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
+            <h4>Locatie</h4>
+            <select id="area_select" name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($areas as $area)
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @if($area->id == $complaint->address->street->area_id)
+                  <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
+                @else
+                  <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @endif
               @endforeach
             </select>
           </div>
 
           <div class="form-group">
             <h4>Straat</h4>
-            <select name="street_id" disabled class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
+            <select id="street_select" name="street_id" class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($streets as $street)
-                <option value="{{ $street->id }}">{{ $street->name }}</option>
+                @if($street->id == $complaint->address->street_id)
+                  <option value="{{ $street->id }}" selected>{{ $street->name }}</option>
+                @endif
               @endforeach
             </select>
           </div>
 
           <div class="form-group">
-            <h4>Adres</h4>
-            <select name="address_id" class="form-control {{ $errors->has('address_id') ? 'border-danger' : '' }}" >
+            <h4>Huisnummer</h4>
+            <select id="address_select" name="address_id" class="form-control {{ $errors->has('address_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($addresses as $address)
                 @if($address->id == $complaint->address_id)
-                  <option selected value="{{ $address->id }}">{{ $address->street->name }} {{ $address->house_number }}</option>
-                @else
-                  <option value="{{ $address->id }}">{{ $address->street->name }} {{ $address->house_number }}</option>
+                  <option value="{{ $address->id }}" selected>{{ $address->house_number }}</option>
                 @endif
               @endforeach
             </select>

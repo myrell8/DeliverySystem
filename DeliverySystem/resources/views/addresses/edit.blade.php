@@ -12,23 +12,25 @@
           @csrf
           <div class="form-group">
             <h4>Locatie</h4>
-            <select name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}" disabled>
+            <select id="area_select" name="area_id" class="form-control {{ $errors->has('area_id') ? 'border-danger' : '' }}">
               <option></option>
               @foreach($areas as $area)
-                <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @if($address->street->area_id == $area->id)
+                  <option value="{{ $area->id }}" selected>{{ $area->name }}</option>
+                @else
+                  <option value="{{ $area->id }}">{{ $area->name }}</option>
+                @endif
               @endforeach
             </select>
           </div>
 
           <div class="form-group">
             <h4>Straat</h4>
-            <select name="street_id" class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
+            <select id="street_select" name="street_id" class="form-control {{ $errors->has('street_id') ? 'border-danger' : '' }}" >
               <option></option>
               @foreach($streets as $street)
                 @if($address->street_id == $street->id)
                   <option value="{{ $street->id }}" selected>{{ $street->name }}</option>
-                @else
-                  <option value="{{ $street->id }}">{{ $street->name }}</option>
                 @endif
               @endforeach
             </select>

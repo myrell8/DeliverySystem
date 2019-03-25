@@ -77,4 +77,12 @@ class AddressesController extends Controller
 
         echo json_encode($streets); 
     }
+
+    public function getAddresses(Request $request) {
+        $streetID = $request->streetID;
+
+        $addresses = Address::where('street_id', '=', $streetID)->get();
+
+        echo json_encode($addresses); 
+    }
 }
