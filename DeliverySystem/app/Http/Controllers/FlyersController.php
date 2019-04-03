@@ -9,7 +9,7 @@ class FlyersController extends Controller
 {
     public function index()
     {
-        $flyers = Flyer::all();
+        $flyers = Flyer::all()->sortByDesc('created_at');
 
         return view('flyers.index', compact('flyers'));
     }

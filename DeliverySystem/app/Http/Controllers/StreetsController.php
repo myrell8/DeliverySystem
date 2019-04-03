@@ -11,7 +11,7 @@ class StreetsController extends Controller
 {
     public function index()
     {
-        $streets = Street::all();
+        $streets = Street::all()->sortByDesc('created_at');
 
         return view('streets.index', compact('streets'));
     }

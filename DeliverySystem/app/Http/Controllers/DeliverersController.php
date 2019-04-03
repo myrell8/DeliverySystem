@@ -10,7 +10,7 @@ class DeliverersController extends Controller
 {
     public function index()
     {
-        $deliverers = Deliverer::all();
+        $deliverers = Deliverer::all()->sortByDesc('created_at');
 
         return view('deliverers.index', compact('deliverers'));
     }

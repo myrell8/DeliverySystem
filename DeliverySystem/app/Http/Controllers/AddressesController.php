@@ -11,7 +11,7 @@ class AddressesController extends Controller
 {
     public function index()
     {
-        $addresses = Address::all();
+        $addresses = Address::all()->sortByDesc('created_at');
 
         return view('addresses.index', compact('addresses'));
     }

@@ -9,7 +9,7 @@ class AdminsController extends Controller
 {
     public function index()
     {
-        $users = User::all();
+        $users = User::all()->sortByDesc('created_at');
 
         return view('users.index', compact('users'));
     }

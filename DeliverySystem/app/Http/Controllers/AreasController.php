@@ -9,7 +9,7 @@ class AreasController extends Controller
 {
     public function index()
     {
-        $areas = Area::all();
+        $areas = Area::all()->sortByDesc('created_at');
 
         return view('areas.index', compact('areas'));
     }

@@ -11,7 +11,7 @@ class PapersController extends Controller
 {
     public function index()
     {
-    	$papers = Paper::all();
+    	$papers = Paper::all()->sortByDesc('created_at');
 
         $addresses = Address::all();
 

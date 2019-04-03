@@ -9,8 +9,14 @@
     <div class="content-bottom scrollbar-custom">
     	<p class="overflow-wrap">Naam: {{ $district->name }}</p>
     	<p class="overflow-wrap">Locatie: {{ $district->area->name }}</p>
-    	<p class="overflow-wrap">Map: {{ $district->map }}</p>
-    	<a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
+    	<p class="overflow-wrap">Map:</p>
+    	@if($district->map)
+    		<img src="/uploads/{{ $district->map }}" width="700" height="400"><br>
+    	@else
+    		<img src="/images/NoImg.jpg" width="700" height="400"><br>
+    	@endif
+    	
+    	<a href="{{ url()->previous() }}" class="btn btn-secondary w-25 mt-4">Terug</a>
     </div> 
 
 @endsection

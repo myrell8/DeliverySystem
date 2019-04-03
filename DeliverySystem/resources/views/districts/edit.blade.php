@@ -7,7 +7,7 @@
 
     <div class="content-bottom">
       <div class="container mt-4">
-        <form method="POST" action="/districts/{{ $district->id }}" class="w-75 m-auto">
+        <form method="POST" action="/districts/{{ $district->id }}" class="w-75 m-auto" enctype="multipart/form-data">
           @method('PATCH')
           @csrf
           <div class="form-group">
@@ -59,7 +59,7 @@
 
           <div class="form-group">
             <h4>Map (Afbeelding)</h4>
-            <input type="text" name="price" class="form-control" placeholder="Image upload" disabled>
+            <input type="file" name="map" id="map">
           </div>
 
           <div class="form-group d-flex justify-content-between">

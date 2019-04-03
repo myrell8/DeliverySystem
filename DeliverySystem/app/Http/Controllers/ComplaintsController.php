@@ -13,7 +13,7 @@ class ComplaintsController extends Controller
 {
     public function index()
     {
-        $complaints = Complaint::all();
+        $complaints = Complaint::all()->sortByDesc('created_at');
 
         return view('complaints.index', compact('complaints'));
     }

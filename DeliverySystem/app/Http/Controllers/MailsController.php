@@ -4,13 +4,15 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Mail;
+use App\Mail\GlobalMail;
+use App\Deliverer;
 
 class MailsController extends Controller
 {
 
     public function index()
     {
-        $mails = Mail::all();
+        $mails = Mail::all()->sortByDesc('created_at');
 
         return view('mails.index', compact('mails'));
     }
@@ -25,6 +27,17 @@ class MailsController extends Controller
         $attributes = $this->validateMail();
 
         $mail = Mail::create($attributes);
+
+        $deliverers = Deliverer::all();
+
+        $mailArray = array();
+        foreach ($deliverers as $deliverer) {
+            $mailArray[] = $deliverer->email;
+        }
+
+        \Mail::to($mailArray)->send(
+                new GlobalMail($mail)
+            );
 
         return redirect('/mails');
     }

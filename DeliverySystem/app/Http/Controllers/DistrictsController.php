@@ -9,12 +9,13 @@ use App\Area;
 use App\Paper;
 use App\Street;
 use App\Address;
+use Illuminate\Support\Facades\Input;
 
 class DistrictsController extends Controller
 {
     public function index()
     {
-        $districts = District::all();
+        $districts = District::all()->sortByDesc('created_at');
 
         $streets = Street::all();
 
@@ -40,6 +41,14 @@ class DistrictsController extends Controller
 
         $district = District::create($attributes);
 
+        if(Input::hasFile('map')){
+            $image = Input::file('map');
+            $name = $image->getClientOriginalName();
+            $image->move('uploads', $name);
+            $district->map = $name;
+            $district->save();
+        }
+
         return redirect('/districts');
     }
 
@@ -61,7 +70,20 @@ class DistrictsController extends Controller
 
     public function update(District $district)
     {
-        $district->update($this->validateDistrict());
+        if(Input::hasFile('map')){
+            unlink("uploads/$district->map");
+
+            $district->update($this->validateDistrict());
+
+            $image = Input::file('map');
+            $name = $image->getClientOriginalName();
+            $image->move('uploads', $name);
+            $district->map = $name;
+            $district->update();
+        }
+        else{
+            $district->update($this->validateDistrict());
+        }
 
         return redirect('/districts');
     }
@@ -69,6 +91,8 @@ class DistrictsController extends Controller
     public function destroy(District $district)
     {
         $district->delete();
+
+        unlink("uploads/$district->map");
 
         return redirect('/districts');
     }
@@ -80,6 +104,7 @@ class DistrictsController extends Controller
             'area_id' => ['required', 'numeric'],
             'paper_id' => [],
             'deliverer_id' => [],
+            'map' => ['image'],
          ]);
       }
 }
