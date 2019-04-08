@@ -7,10 +7,29 @@
     </div>
 
     <div class="content-bottom scrollbar-custom">
-    	<p class="overflow-wrap">Onderwerp: {{ $mail->subject }}</p>
-    	<p class="overflow-wrap">Inhoud: {{ $mail->body }}</p>
-    	<p class="overflow-wrap">Verstuurd op: {{ $mail->created_at }}</p>
-    	<a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
-    </div> 
+        <table class="table table-borderless">
+            <tbody>
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Onderwerp:</th>
+                    <td class="h5">{{ $mail->subject }}</td>
+                </tr>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Inhoud:</th>
+                    <td class="h5">{{ $mail->body }}</td>
+                </tr>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Verstuurd op:</th>
+                    <td class="h5">{{ $mail->created_at }}</td>
+                </tr>
+
+            </tbody>
+        </table>
+
+        <span class="w-100 d-flex justify-content-center">
+            <a href="{{ url()->previous() }}" class="btn btn-secondary w-25 p-2">Terug</a>
+        </span>
+    </div>
 
 @endsection

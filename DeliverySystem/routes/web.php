@@ -35,3 +35,4 @@ Route::resource('addresses', 'AddressesController')->middleware('auth');
 Route::resource('admins', 'AdminsController')->middleware('auth');
 Route::resource('deliverers', 'DeliverersController')->middleware('auth');
 Route::resource('mails', 'MailsController')->middleware('auth');
+Route::resource('couriers', 'CouriersController')->middleware('auth');

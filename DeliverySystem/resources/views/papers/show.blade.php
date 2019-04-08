@@ -10,7 +10,7 @@
     <div class="content-bottom scrollbar-custom">
 
     	<table class="table table-borderless">
-	   	  <tbody c>
+	   	  <tbody>
 		    <tr>
 		      <th class="w-20 h5 font-weight-bold">Naam:</th>
 		      <td class="h5">{{ $paper->name }}</td>

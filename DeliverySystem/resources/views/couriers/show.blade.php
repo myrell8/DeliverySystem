@@ -3,7 +3,7 @@
 @section('content')
 
 	<div class="content-top">
-      <span class="h1 overflow-wrap">{{ $flyer->name }}</span>
+      <span class="h1 overflow-wrap">{{ $courier->firstname }} {{ $courier->lastname }}</span>
     </div>
 
     <div class="content-bottom scrollbar-custom">
@@ -11,17 +11,7 @@
             <tbody>
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Naam:</th>
-                    <td class="h5">{{ $flyer->name }}</td>
-                </tr>
-
-                <tr>
-                    <th class="w-20 h5 font-weight-bold">Bonus (min):</th>
-                    <td class="h5">&euro;{{ $flyer->min_amount }}</td>
-                </tr>
-
-                <tr>
-                    <th class="w-20 h5 font-weight-bold">Bonus (max):</th>
-                    <td class="h5">&euro;{{ $flyer->max_amount }}</td>
+                    <td class="h5">{{ $courier->firstname }} {{ $courier->lastname }}</td>
                 </tr>
 
             </tbody>

@@ -4,6 +4,8 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use App\Area;
+use App\Street;
+use App\Address;
 
 class AreasController extends Controller
 {
@@ -11,7 +13,11 @@ class AreasController extends Controller
     {
         $areas = Area::all()->sortByDesc('created_at');
 
-        return view('areas.index', compact('areas'));
+        $streets = Street::all();
+
+        $addresses = Address::all();
+
+        return view('areas.index', compact('areas', 'streets', 'addresses'));
     }
 
     public function create()
@@ -30,7 +36,11 @@ class AreasController extends Controller
 
     public function show(Area $area)
     {
-        return view('areas.show', compact('area'));
+        $streets = Street::all();
+
+        $addresses = Address::all();
+
+        return view('areas.show', compact('area', 'streets', 'addresses'));
     }
 
     public function edit(Area $area)

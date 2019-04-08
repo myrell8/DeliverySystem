@@ -19,6 +19,7 @@
             <tr>
               <th scope="col">Naam</th>
               <th scope="col">Postcode</th>
+              <th scope="col">Adressen</th>
               <th scope="col">Locatie</th>
               <th scope="col">Wijk</th>
               <th scope="col" class="form-button-column">Info</th>
@@ -31,6 +32,15 @@
               <tr>
                 <th scope="row">{{ $street->name }}</th>
                 <td>{{ $street->areacode }}</td>
+
+                <?php $address_count = 0; ?>
+                @foreach($addresses as $address)
+                  @if($address->street->id == $street->id)
+                    <?php $address_count++ ?>
+                  @endif
+                @endforeach
+
+                <td>{{ $address_count }}</td>
 
                 @isset($street->area->name)
                   <td>{{ $street->area->name }}</td>

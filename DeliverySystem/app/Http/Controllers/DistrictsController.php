@@ -54,7 +54,13 @@ class DistrictsController extends Controller
 
     public function show(District $district)
     {
-        return view('districts.show', compact('district'));
+        $papers = Paper::all();
+
+        $streets = Street::all();
+
+        $addresses = Address::all();
+
+        return view('districts.show', compact('district', 'streets', 'addresses'));
     }
 
     public function edit(District $district)

@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Street;
 use App\Area;
 use App\District;
+use App\Address;
 
 class StreetsController extends Controller
 {
@@ -13,7 +14,9 @@ class StreetsController extends Controller
     {
         $streets = Street::all()->sortByDesc('created_at');
 
-        return view('streets.index', compact('streets'));
+        $addresses = Address::all();
+
+        return view('streets.index', compact('streets', 'addresses'));
     }
 
     public function create()
@@ -36,7 +39,11 @@ class StreetsController extends Controller
 
     public function show(Street $street)
     {
-        return view('streets.show', compact('street'));
+        $addresses = Address::all();
+
+        $districts = District::all();
+
+        return view('streets.show', compact('street', 'addresses', 'districts'));
     }
 
     public function edit(Street $street)

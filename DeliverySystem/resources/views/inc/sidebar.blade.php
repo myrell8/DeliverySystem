@@ -50,7 +50,7 @@
             <a href="/mails" class="nav-link {{ $currenturl == "mails" ? 'active' : '' }}">Email bezorgers</a>
         </li>
         <li>
-            <a href="#" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>
+            <a href="/couriers" class="nav-link {{ $currenturl == "couriers" ? 'active' : '' }}">Koeriers</a>
         </li>
     </ul>
 </nav>

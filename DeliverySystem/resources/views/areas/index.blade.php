@@ -19,6 +19,8 @@
             <tr>
               <th scope="col">Naam</th>
               <th scope="col">Stad</th>
+              <th scope="col">Straten</th>
+              <th scope="col">Adressen</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -29,6 +31,24 @@
             <tr>
               <th scope="row">{{ $area->name }}</th>
               <td>{{ $area->city }}</td>
+
+              <?php $street_count = 0; ?>
+              @foreach($streets as $street)
+                @if($street->area->id == $area->id)
+                  <?php $street_count++ ?>
+                @endif
+              @endforeach
+
+              <?php $address_count = 0; ?>
+              @foreach($addresses as $address)
+                @if($address->street->area->id == $area->id)
+                  <?php $address_count++ ?>
+                @endif
+              @endforeach
+
+              <td>{{ $street_count }}</td>
+              <td>{{ $address_count }}</td>
+
               <td><a href="/areas/{{ $area->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/areas/{{ $area->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>
               <td>
