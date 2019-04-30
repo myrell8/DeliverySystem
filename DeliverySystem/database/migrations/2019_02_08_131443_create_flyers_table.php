@@ -15,11 +15,12 @@ class CreateFlyersTable extends Migration
     {
         Schema::create('flyers', function (Blueprint $table) {
             $table->increments('id');
-            $table->unsignedInteger('paper_id')->nullable();
+            $table->string('type')->nullable();
+            $table->string('specific')->nullable();
             $table->string('name');
             $table->decimal('price');
             $table->decimal('min_amount');
-            $table->decimal('max_amount');      
+            $table->decimal('max_amount');
             $table->timestamps();
         });
     }

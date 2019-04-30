@@ -5,6 +5,7 @@ namespace App\Http\Controllers;
 use Illuminate\Http\Request;
 use App\Deliverer;
 use App\District;
+use App\Flyer;
 
 class DeliverersController extends Controller
 {
@@ -31,7 +32,9 @@ class DeliverersController extends Controller
 
     public function show(Deliverer $deliverer)
     {
-        return view('deliverers.show', compact('deliverer'));
+        $flyers = Flyer::where('type', '=', 'Bezorger')->get();
+
+        return view('deliverers.show', compact('deliverer', 'flyers'));
     }
 
     public function edit(Deliverer $deliverer)

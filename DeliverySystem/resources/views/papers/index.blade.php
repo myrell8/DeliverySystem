@@ -22,7 +22,6 @@
               <th scope="col">Prijs/krant in €</th>
               <th scope="col">Wijken</th>
               <th scope="col">Adressen</th>
-              <th scope="col">Folders deze week</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -51,8 +50,6 @@
 
               <td>{{ $district_count }}</td>
               <td>{{ $address_count }}</td>
-
-              <td>-</td>
               
               <td><a href="/papers/{{ $paper->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
               <td><a href="/papers/{{ $paper->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>

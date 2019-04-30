@@ -31,4 +31,100 @@ $(document).ready(function(){
   		});
 	});
 
+	/*
+    	Function called when the user uses the 'addToType' select.
+    */
+
+	$('#addToType').on("change", function(){
+		var type = $(this).val(); //store the users' choice (ex. 'Postcode', 'Locatie' or 'Bezorger')
+
+		if (type === "Locatie") { //if the user selects "Locatie" in the 'type' input.
+			$.post( "/getArea", { _token: $('input[name=_token]').val() }) //call the /getArea route
+  			.done(function( data ) {
+  				$('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+  				$('#addToSpecific').empty(); //clear the 'specific' input
+  				$('#addToSpecific').append("<option></option>"); //insert empty option tag in the 'specific' input
+  				var jsonData = JSON.parse(data);
+				for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered area's
+				    var area = jsonData[i];
+				    $('#addToSpecific').append("<option value=" + area.id + " >" + area.name + "</option>");
+				}
+  			});
+		}
+
+		else if (type === "Bezorger") { //if the user selects "Bezorger" in the 'type' input.
+			$.post( "/getDeliverer", { _token: $('input[name=_token]').val() }) //call the /getDeliverer route
+  			.done(function( data ) {
+  				$('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+  				$('#addToSpecific').empty(); //clear the 'specific' input
+  				$('#addToSpecific').append("<option></option>"); //insert empty option tag in the 'specific' input
+  				var jsonData = JSON.parse(data);
+				for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered deliverers's
+				    var deliverer = jsonData[i];
+				    $('#addToSpecific').append("<option value=" + deliverer.id + " >" + deliverer.firstname + " " + deliverer.lastname + "</option>");
+				}
+  			});
+		}
+
+		else if (type === "Postcode") { //if the user selects "Postcode" in the 'type' input.
+			$.post( "/getAreacode", { _token: $('input[name=_token]').val() }) //call the /getAreacode route
+  			.done(function( data ) {
+  				$('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+  				$('#addToSpecific').empty(); //clear the 'specific' input
+  				$('#addToSpecific').append("<option></option>"); //insert empty option tag in the 'specific' input
+  				var jsonData = JSON.parse(data);
+				for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered areacodes's
+				    var street = jsonData[i];
+				    $('#addToSpecific').append("<option value=" + street.areacode + " >" + street.areacode + "</option>");
+				}
+  			});
+		}
+
+		else { //disable and clear the 'specific' input when the 'type' input has no value.
+			$('#addToSpecific').prop( "disabled", true );
+			$('#addToSpecific').empty();
+		}
+		
+	});
+
+	/*
+    	Function called when the user presses the 'btn-ok' button to confirm the deletion of a flyer.
+    */
+	$('#confirm-delete').on('click', '.btn-ok', function(e) {
+		$.ajaxSetup({
+		  headers: {
+		    'X-CSRF-TOKEN': $('meta[name="csrf-token"]').attr('content') //CSRF token needed to alter the database with Laravel applications
+		  }
+		});
+
+        var $modalDiv = $(e.delegateTarget);
+        var id = $(this).data('record-id'); //store flyer id.
+        var token = $(this).data("token"); //store csrf token.
+
+        $.ajax({ //Ajax call to the 'deleteFlyer' route which uses the given id to delete that flyer from the database.
+        	url: '/deleteFlyer',
+        	type: 'DELETE',
+        	dataType: 'JSON',
+        	data: {
+        		"id" : id,
+        		"_token": token,
+        	}
+        });
+        
+        $modalDiv.modal('hide'); // hide the modal after deleting the flyer.
+
+        setTimeout(function() {
+		    location.reload(); //reload the page after deleting the flyer.
+		}, 1000);
+    });
+
+    /*
+    	Function called when the user presses the 'Verwijder' button to toggle the modal.
+    	This function uses the given data to store the title(name) and id of the flyer he/she is about to delete.
+    */
+    $('#confirm-delete').on('show.bs.modal', function(e) {
+        var data = $(e.relatedTarget).data();
+        $('.title', this).text(data.recordTitle);
+        $('.btn-ok', this).data('recordId', data.recordId);
+    });
 });

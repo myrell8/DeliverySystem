@@ -60,6 +60,17 @@
                 </tr>
 
                 <tr>
+                    <th class="w-20 h5 font-weight-bold">Folder:</th>
+                    <td class="h5">
+                        @foreach($flyers as $flyer)
+                            @if($flyer->specific == $deliverer->id)
+                                {{ $flyer->name }} ,
+                            @endif
+                        @endforeach
+                    </td>
+                </tr>
+
+                <tr>
                     <th class="w-20 h5 font-weight-bold">Overig:</th>
                     <td class="h5">{{ $deliverer->comment ? $deliverer->comment : 'n.v.t.' }}</td>
                 </tr>

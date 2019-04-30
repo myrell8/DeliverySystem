@@ -6,6 +6,7 @@ use Illuminate\Http\Request;
 use App\Area;
 use App\Street;
 use App\Address;
+use App\Flyer;
 
 class AreasController extends Controller
 {
@@ -40,7 +41,9 @@ class AreasController extends Controller
 
         $addresses = Address::all();
 
-        return view('areas.show', compact('area', 'streets', 'addresses'));
+        $flyers = Flyer::where('type', '=', 'Locatie')->get();
+
+        return view('areas.show', compact('area', 'streets', 'addresses', 'flyers'));
     }
 
     public function edit(Area $area)

@@ -41,6 +41,21 @@
                     <td class="h5">{{ $street->district->name }}</td>
                 </tr>
 
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Folder:</th>
+                    <td class="h5">
+                        @foreach($flyers as $flyer)
+                            @if($flyer->specific == $street->areacode)
+                                {{ $flyer->name }} ,
+                            @endif
+
+                            @if($flyer->specific == $street->area->id)
+                                {{ $flyer->name }} ,
+                            @endif
+                        @endforeach
+                    </td>
+                </tr>
+
             </tbody>
         </table>
 

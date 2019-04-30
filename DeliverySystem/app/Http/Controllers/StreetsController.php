@@ -7,6 +7,7 @@ use App\Street;
 use App\Area;
 use App\District;
 use App\Address;
+use App\Flyer;
 
 class StreetsController extends Controller
 {
@@ -43,7 +44,9 @@ class StreetsController extends Controller
 
         $districts = District::all();
 
-        return view('streets.show', compact('street', 'addresses', 'districts'));
+        $flyers = Flyer::where('type', '=', 'Postcode')->orWhere('type', '=', 'Locatie')->get();
+
+        return view('streets.show', compact('street', 'addresses', 'districts', 'flyers'));
     }
 
     public function edit(Street $street)

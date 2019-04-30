@@ -22,6 +22,10 @@ Auth::routes();
 // (Ajax) function routes
 Route::post('/getStreets', 'AddressesController@getStreets');
 Route::post('/getAddresses', 'AddressesController@getAddresses');
+Route::post('/getArea', 'FlyersController@getArea');
+Route::post('/getDeliverer', 'FlyersController@getDeliverer');
+Route::post('/getAreacode', 'FlyersController@getAreacode');
+Route::delete('/deleteFlyer', 'FlyersController@deleteFlyer');
 
 // Resource routes
 Route::resource('papers', 'PapersController')->middleware('auth');
