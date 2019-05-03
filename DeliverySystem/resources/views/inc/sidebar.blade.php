@@ -5,12 +5,12 @@
     $currenturl = substr($currenturl, 0, $pos);
 ?>
 
-<nav id="sidebar">
+<nav id="sidebar" class="scrollbar-custom">
     <div class="sidebar-header">
         <h3>Navigatie</h3>
     </div>
 
-    <ul class="list-unstyled components">
+    <ul class="list-unstyled components scrollbar-custom">
         <span>Menu</span>
         <li>
             <a href="/papers" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Kranten</a>

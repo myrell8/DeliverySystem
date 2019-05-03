@@ -58,7 +58,7 @@
                 <form method="POST" action="/addresses/{{ $address->id }}" class="w-100 text-center">
                   @method('DELETE')
                   @csrf
-                  <button type="submit" id="{{ $flyer->id }}" class="btn btn-danger w-100" onclick="return confirm('Are you sure?')">Verwijder</button>
+                  <button type="submit" id="{{ $address->id }}" class="btn btn-danger w-100" onclick="return confirm('Are you sure?')">Verwijder</button>
                 </form>
               </td>
             </tr>

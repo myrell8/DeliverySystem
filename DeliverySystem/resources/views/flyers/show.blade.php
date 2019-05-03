@@ -80,7 +80,7 @@
         </table>
 
         <span class="w-100 d-flex justify-content-center">
-            <a href="{{ url()->previous() }}" class="btn btn-secondary w-25 p-2">Terug</a>
+            <a href="/flyers" class="btn btn-secondary w-25 p-2">Terug</a>
         </span>
     </div>
 

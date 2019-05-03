@@ -12,6 +12,8 @@
 
 .body-container{
 	max-width: 84vw;
+	max-height: 85vh;
+	overflow: auto;
 }
 
 .content-top{

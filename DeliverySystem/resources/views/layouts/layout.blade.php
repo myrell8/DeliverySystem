@@ -82,7 +82,7 @@
 
         <div class="container-fluid p-0 d-flex justify-content-between main-container">
             @include('inc/sidebar')
-            <div class="container-fluid bg-white border p-4 m-4 body-container">
+            <div class="container-fluid bg-white border p-4 m-4 body-container scrollbar-custom">
                 <main>
                     @yield('content')
                 </main>

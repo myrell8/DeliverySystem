@@ -5,7 +5,7 @@
       <span class="h1">Folder Toevoegen</span>
     </div>
 
-    <div class="content-bottom">
+    <div class="content-bottom scrollbar-custom">
       <div class="container mt-4">
         {{-- Form that displays on the create page. When one of the inputs doesnt meet the requirements set in the FlyersController it will be assigned the 'border-danger'  class which will give the borders a red colour. --}}
         <form method="POST" action="/flyers" class="w-75 m-auto">
@@ -44,7 +44,7 @@
           </div>
 
           <div class="form-group d-flex justify-content-between">
-            <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a> {{-- Redirect user back to previous page. --}}
+            <a href="/flyers" class="btn btn-secondary w-25">Terug</a> {{-- Redirect user back to previous page. --}}
             <button type="submit" class="btn btn-primary w-25">Voeg folder toe</button> {{-- Submit the form and call the 'create' function in the controller --}}
           </div>
         </form>
