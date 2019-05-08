@@ -31,12 +31,80 @@ $(document).ready(function(){
   		});
 	});
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
 	/*
-    	Function called when the user uses the 'addToType' select.
+    	Function called when the user loads the edit page.
+    */
+
+  var type = $('#addToType').val(); //store the users' choice (ex. 'Postcode', 'Locatie' or 'Bezorger')
+  var specificName = $('#specificName').val();
+
+  if (type === "Locatie") { //if the user selects "Locatie" in the 'type' input.
+    $.post( "/getArea", { _token: $('input[name=_token]').val() }) //call the /getArea route
+      .done(function( data ) {
+        $('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+        var jsonData = JSON.parse(data);
+      for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered area's
+        var area = jsonData[i];
+        if (area.id == specificName) {
+          $('#addToSpecific').append("<option value=" + area.id + " selected>" + area.name + "</option>");
+        }
+        else {
+          $('#addToSpecific').append("<option value=" + area.id + " >" + area.name + "</option>");
+        }
+      }
+      });
+  }
+
+  else if (type === "Bezorger") { //if the user selects "Bezorger" in the 'type' input.
+    $.post( "/getDeliverer", { _token: $('input[name=_token]').val() }) //call the /getDeliverer route
+      .done(function( data ) {
+        $('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+        var jsonData = JSON.parse(data);
+      for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered deliverers's
+        var deliverer = jsonData[i];
+        if (deliverer.id == specificName) {
+          $('#addToSpecific').append("<option value=" + deliverer.id + " selected>" + deliverer.firstname + " " + deliverer.lastname + "</option>");
+        }
+        else {
+          $('#addToSpecific').append("<option value=" + deliverer.id + " >" + deliverer.firstname + " " + deliverer.lastname + "</option>");
+        }
+      }
+      });
+  }
+
+  else if (type === "Postcode") { //if the user selects "Postcode" in the 'type' input.
+    $.post( "/getAreacode", { _token: $('input[name=_token]').val() }) //call the /getAreacode route
+      .done(function( data ) {
+        $('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+        var jsonData = JSON.parse(data);
+      for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered areacodes's
+          var street = jsonData[i];
+          if (street.areacode == specificName) {
+            $('#addToSpecific').append("<option value=" + street.areacode + " selected>" + street.areacode + "</option>");
+          }
+          else {
+            $('#addToSpecific').append("<option value=" + street.areacode + " >" + street.areacode + "</option>");
+          }   
+      }
+      });
+  }
+
+  else { //disable and clear the 'specific' input when the 'type' input has no value.
+    $('#addToSpecific').prop( "disabled", true );
+    $('#addToSpecific').empty();
+  }
+
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  /*
+      Function called when the user uses the 'addToType' select.
     */
 
 	$('#addToType').on("change", function(){
-		var type = $(this).val(); //store the users' choice (ex. 'Postcode', 'Locatie' or 'Bezorger')
+		var type = $(this).val(); 
 
 		if (type === "Locatie") { //if the user selects "Locatie" in the 'type' input.
 			$.post( "/getArea", { _token: $('input[name=_token]').val() }) //call the /getArea route
@@ -86,6 +154,8 @@ $(document).ready(function(){
 		}
 		
 	});
+
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	/*
     	Function called when the user presses the 'btn-ok' button to confirm the deletion of a flyer.

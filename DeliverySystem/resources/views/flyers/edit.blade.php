@@ -52,20 +52,20 @@
             </select>
           </div>
 
-          {{-- For the specific input there will be a php variable created named 'specificName'. The current 'specific' attribute of the flyer the user is trying to edit will be stored in here useing the following code --}}
+          {{-- For the specific input a variable will be created named 'specificName'. The current 'specific' attribute of the flyer the user is trying to edit will be stored in here useing the following code --}}
 
           @if($flyer->type == "Bezorger") {{-- Check if the flyer is linked to a deliverer --}}
             @foreach($deliverers as $deliverer)
-              @if($deliverer->id == $flyer->specific) {{-- Store the deliverers full name in 'specificName' --}}
-                <?php $specificName = $deliverer->firstname . " " . $deliverer->lastname ?>
+              @if($deliverer->id == $flyer->specific) {{-- Store the deliverers id in 'specificName' --}}
+                <?php $specificName = $deliverer->id ?>
               @endif
             @endforeach
           @endif
 
           @if($flyer->type == "Locatie") {{-- Check if the flyer is linked to an area --}}
             @foreach($areas as $area)
-              @if($area->id == $flyer->specific) {{-- Store area's name in 'specificName' --}}
-                <?php $specificName = $area->name ?>
+              @if($area->id == $flyer->specific) {{-- Store area's id in 'specificName' --}}
+                <?php $specificName = $area->id ?>
               @endif
             @endforeach
           @endif
@@ -76,12 +76,11 @@
 
           <div class="form-group">
             <h4>Toevoegen aan (specifiek)</h4>
+            @if(isset($specificName))
+            <input type="hidden" name="specificName" id="specificName" value="{{ $specificName }}"> {{-- Hidden input for Jquery function --}}
+            @endif
             <select id="addToSpecific" name="specific" disabled class="form-control {{ $errors->has('specific') ? 'border-danger' : '' }}" >
-              <option>
-                @if(isset($specificName))
-                  {{ $specificName }} {{-- Set the current value to specificName's value. This will be overwritten when the user uses the 'type' input --}}
-                @endif
-              </option>
+              <option></option>
             </select>
           </div>
 
