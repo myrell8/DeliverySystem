@@ -1,5 +1,11 @@
 $(document).ready(function(){
 
+//@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
+
+  /*
+      Function called when the user loads the edit street & edit address pages.
+    */
+
 	$('#area_select').on("change", function(){
 		var areaID = $(this).val();		
 		$.post( "/getStreets", { areaID: areaID, _token: $('input[name=_token]').val() })
@@ -34,7 +40,7 @@ $(document).ready(function(){
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	/*
-    	Function called when the user loads the edit page.
+    	Function called when the user loads the edit flyer page.
     */
 
   var type = $('#addToType').val(); //store the users' choice (ex. 'Postcode', 'Locatie' or 'Bezorger')

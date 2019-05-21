@@ -36,17 +36,22 @@
 
               <?php $district_count = 0; ?>
               @foreach($districts as $district)
-                @if($district->paper_id == $paper->id)
-                  <?php $district_count++ ?>
-                @endif
+                @isset($district->paper_id)
+                  @if($district->paper_id == $paper->id)
+                    <?php $district_count++ ?>
+                  @endif
+                @endisset
               @endforeach
 
               <?php $address_count = 0; ?>
               @foreach($addresses as $address)
-                @if($address->street->district->paper_id == $paper->id)
-                  <?php $address_count++ ?>
-                @endif
+                @isset($address->street->district->paper_id)
+                  @if($address->street->district->paper_id == $paper->id)
+                    <?php $address_count++ ?>
+                  @endif
+                @endisset
               @endforeach
+              
 
               <td>{{ $district_count }}</td>
               <td>{{ $address_count }}</td>

@@ -24,7 +24,7 @@
             </tr>
           </thead>
           <tbody>
-            {{-- Looping through each flyer in the database and making a table row with the flyers' information inside --}}
+            {{-- Looping through each flyer in the database and making a table row with the flyers' information in the <td> inside --}}
             @foreach($flyers as $flyer)
             <tr>
               <th scope="row">{{ $flyer->name }}</th>
