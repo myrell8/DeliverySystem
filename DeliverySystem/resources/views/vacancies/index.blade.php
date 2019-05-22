@@ -50,14 +50,18 @@
 
                   <?php $street_count = 0; $address_count = 0; ?>
                   @foreach($streets as $street)
-                    @if($street->district_id == $district->id)
-                      <?php $street_count = $street_count + 1 ?>
-                      @foreach($addresses as $address)
-                        @if($address->street_id == $street->id)
-                          <?php $address_count = $address_count + 1 ?>
-                        @endif
-                      @endforeach
-                    @endif
+                    @isset($street->district_id)
+                      @if($street->district_id == $district->id)
+                        <?php $street_count = $street_count + 1 ?>
+                        @foreach($addresses as $address)
+                          @isset($address->street_id)
+                            @if($address->street_id == $street->id)
+                              <?php $address_count = $address_count + 1 ?>
+                            @endif
+                          @endisset
+                        @endforeach
+                      @endif
+                    @endisset
                   @endforeach
 
                   <td>{{ $street_count }}</td>

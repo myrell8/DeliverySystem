@@ -46,14 +46,14 @@
                   <td>{{ $street->area->name }}</td>
                 @endisset
                 @empty($street->area->name)
-                  <td class="text-danger">Error: not found</td>
+                  <td>-</td>
                 @endempty
 
                 @isset($street->district->name)
                   <td>{{ $street->district->name }}</td>
                 @endisset
                 @empty($street->district->name)
-                  <td class="text-danger">Error: not found</td>
+                  <td>-</td>
                 @endempty
 
                 <td><a href="/streets/{{ $street->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>

@@ -33,7 +33,7 @@
                 <th scope="row">{{ $address->street->name }}</td>
               @endisset
               @empty($address->street->name)
-                <td class="text-danger">Error: not found</td>
+                <td>-</td>
               @endempty
 
               <td>{{ $address->house_number }}</td>
@@ -42,14 +42,14 @@
                 <td>{{ $address->street->areacode }}</td>
               @endisset
               @empty($address->street->areacode)
-                <td class="text-danger">Error: not found</td>
+                <td>-</td>
               @endempty
 
               @isset($address->street->area->name)
                 <td>{{ $address->street->area->name }}</td>
               @endisset
               @empty($address->street->area->name)
-                <td class="text-danger">Error: not found</td>
+                <td>-</td>
               @endempty
 
               <td><a href="/addresses/{{ $address->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>

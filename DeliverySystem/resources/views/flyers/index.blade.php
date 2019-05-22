@@ -31,8 +31,11 @@
               <td>&euro;{{ $flyer->price }}</td>
               <td>&euro;{{ $flyer->min_amount }}</td>
               <td>&euro;{{ $flyer->max_amount }}</td>
+
               <td><a href="/flyers/{{ $flyer->id }}" class="btn btn-secondary w-100" role=button>Info</a></td> {{-- Link to the show view, uses the flyer id in the url to redirect the user to the flyer he/she chooses--}}
+
               <td><a href="/flyers/{{ $flyer->id }}/edit" class="btn btn-primary w-100" role=button>Wijzig</a></td>{{-- Link to the edit view, uses the flyer id in the url to redirect the user to the flyer he/she chooses--}}
+              
               <td>
                 {{-- Button that calls the JQuery function to show the 'confirm-delete' modal --}}
                 <a href="#" class="btn btn-danger w-100" data-record-id="{{ $flyer->id }}" data-record-title="{{ $flyer->name }}" data-toggle="modal" data-target="#confirm-delete">

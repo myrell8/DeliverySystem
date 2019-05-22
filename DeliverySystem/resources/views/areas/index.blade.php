@@ -34,16 +34,20 @@
 
               <?php $street_count = 0; ?>
               @foreach($streets as $street)
-                @if($street->area->id == $area->id)
-                  <?php $street_count++ ?>
-                @endif
+                @isset($street->area->id)
+                  @if($street->area->id == $area->id)
+                    <?php $street_count++ ?>
+                  @endif
+                @endisset
               @endforeach
 
               <?php $address_count = 0; ?>
               @foreach($addresses as $address)
-                @if($address->street->area->id == $area->id)
-                  <?php $address_count++ ?>
-                @endif
+                @isset($address->street->area->id)
+                  @if($address->street->area->id == $area->id)
+                    <?php $address_count++ ?>
+                  @endif
+                @endisset
               @endforeach
 
               <td>{{ $street_count }}</td>

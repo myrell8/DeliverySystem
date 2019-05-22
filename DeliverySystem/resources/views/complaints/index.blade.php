@@ -33,11 +33,34 @@
             @foreach($complaints as $complaint)
               <tr>
                 <td scope="row">{{ $complaint->updated_at->format('d M Y') }}</td>
-                <td>{{ $complaint->address->street->area->name }}</td>
-                <td>{{ $complaint->address->street->name }} {{ $complaint->address->house_number }}</td>
+
+                @isset($complaint->address->street->area->name)
+                  <td>{{ $complaint->address->street->area->name }}</td>
+                @endisset
+                @empty($complaint->address->street->area->name)
+                  <td>-</td>
+                @endempty
+
+                @isset($complaint->address->street->name)
+                  @isset($complaint->address->house_number)
+                    <td>{{ $complaint->address->street->name }} {{ $complaint->address->house_number }}</td>
+                  @endisset
+                @endisset
+                @empty($complaint->address->house_number)
+                  <td>-</td>
+                @endempty
+
+
                 <td>{{ $complaint->year }}</td>
                 <td>{{ $complaint->week }}</td>
-                <td>{{ $complaint->address->street->district->deliverer->firstname }} {{ $complaint->address->street->district->deliverer->lastname }}</td>
+
+                @isset($complaint->address->street->district->deliverer->firstname)
+                  <td>{{ $complaint->address->street->district->deliverer->firstname }} {{ $complaint->address->street->district->deliverer->lastname }}</td>
+                @endisset
+                @empty($complaint->address->street->district->deliverer->firstname)
+                  <td>-</td>
+                @endempty
+
                 <td>{{ $complaint->type }}</td>
 
                 <td><a href="/complaints/{{ $complaint->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
