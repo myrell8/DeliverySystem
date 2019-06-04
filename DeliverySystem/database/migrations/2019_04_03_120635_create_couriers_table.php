@@ -17,6 +17,18 @@ class CreateCouriersTable extends Migration
             $table->increments('id');
             $table->string('firstname');
             $table->string('lastname');
+            $table->string('street');
+            $table->string('house_number');
+            $table->string('areacode');
+            $table->string('city');
+            $table->string('telephone')->nullable();
+            $table->string('mobile')->nullable();
+            $table->string('email');
+            $table->string('iban');
+            $table->string('iban_name');
+            $table->decimal('weekly_salary');
+            $table->date('birthday');
+            $table->string('comment')->nullable();
             $table->timestamps();
         });
     }

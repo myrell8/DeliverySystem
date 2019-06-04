@@ -4,12 +4,12 @@ namespace App;
 
 use Illuminate\Database\Eloquent\Model;
 
-class Flyer extends Model
+class Flyerlink extends Model
 {
     protected $guarded = [];
 
-    public function flyerlink()
+    public function flyer()
     {
-    	return $this->hasMany(Flyerlink::class);
+    	return $this->belongsTo(Flyer::class);
     }
 }

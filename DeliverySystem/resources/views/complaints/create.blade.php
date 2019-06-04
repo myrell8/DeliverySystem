@@ -48,7 +48,7 @@
               </div>
               <div class="col">
                 <h4>Weeknummer</h4>
-                <input type="number" name="week" class="form-control {{ $errors->has('week') ? 'border-danger' : '' }}" placeholder="Weeknummer" required>
+                <input type="number" name="week" class="form-control {{ $errors->has('week') ? 'border-danger' : '' }}" min="1" max="52" placeholder="Weeknummer" required>
               </div>
             </div>
           </div> 

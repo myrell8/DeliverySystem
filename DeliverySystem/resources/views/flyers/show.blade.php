@@ -27,44 +27,7 @@
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Bonus (max):</th>
                     <td class="h5">&euro;{{ $flyer->max_amount }}</td>
-                </tr>
-
-                <tr>
-                    <th class="w-20 h5 font-weight-bold">Gekoppeld aan:</th>
-                    <td class="h5">{{ $flyer->type }}</td>
-                </tr>
-
-                {{-- The code below stores the specific deliverername, areacode or areaname in a php variable called 'specificName'. --}}
-
-                @if($flyer->type == "Bezorger")
-                    @foreach($deliverers as $deliverer)
-                      @if($deliverer->id == $flyer->specific)
-                        <?php $specificName = $deliverer->firstname . " " . $deliverer->lastname ?>
-                      @endif
-                    @endforeach
-
-                @elseif($flyer->type == "Locatie")
-                    @foreach($areas as $area)
-                      @if($area->id == $flyer->specific)
-                        <?php $specificName = $area->name ?>
-                      @endif
-                    @endforeach
-
-                @elseif($flyer->type == "Postcode")
-                    <?php $specificName = $flyer->specific ?>
-
-                @else
-                    <?php $specificName = "" ?>
-
-                @endif
-
-
-                <tr>
-                    <th class="w-20 h5 font-weight-bold">Bezorgd op/door:</th>
-                    @if(isset($specificName))
-                        <td class="h5">{{ $specificName }}</td> {{-- Echo the 'specificName' from the function above to show what specific area, deliverer or areacode this flyer is linked to --}}
-                    @endif
-                </tr>
+                </tr>     
 
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Gemaakt op:</th>

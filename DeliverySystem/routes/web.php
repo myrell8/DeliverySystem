@@ -22,14 +22,15 @@ Auth::routes();
 // (Ajax) function routes
 Route::post('/getStreets', 'AddressesController@getStreets');
 Route::post('/getAddresses', 'AddressesController@getAddresses');
-Route::post('/getArea', 'FlyersController@getArea');
-Route::post('/getDeliverer', 'FlyersController@getDeliverer');
-Route::post('/getAreacode', 'FlyersController@getAreacode');
+Route::post('/getArea', 'FlyersLinkController@getArea');
+Route::post('/getDeliverer', 'FlyersLinkController@getDeliverer');
+Route::post('/getAreacode', 'FlyersLinkController@getAreacode');
 Route::delete('/deleteFlyer', 'FlyersController@deleteFlyer');
 
 // Resource routes
 Route::resource('papers', 'PapersController')->middleware('auth');
 Route::resource('flyers', 'FlyersController')->middleware('auth');
+Route::resource('flyerlinks', 'FlyersLinkController')->middleware('auth');
 Route::resource('districts', 'DistrictsController')->middleware('auth');
 Route::resource('vacancies', 'VacanciesController')->middleware('auth');
 Route::resource('complaints', 'ComplaintsController')->middleware('auth');
