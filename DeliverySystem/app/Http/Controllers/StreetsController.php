@@ -44,7 +44,7 @@ class StreetsController extends Controller
 
         $districts = District::all();
 
-        $flyers = Flyer::where('type', '=', 'Postcode')->orWhere('type', '=', 'Locatie')->get();
+        //$flyers = Flyer::where('type', '=', 'Postcode')->orWhere('type', '=', 'Locatie')->get();
 
         return view('streets.show', compact('street', 'addresses', 'districts', 'flyers'));
     }

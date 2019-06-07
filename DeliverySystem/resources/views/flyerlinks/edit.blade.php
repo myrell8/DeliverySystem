@@ -2,7 +2,7 @@
 
 @section('content')
     <div class="content-top">
-      <span class="h1">Koppeling Toevoegen</span>
+      <span class="h1">Koppeling Wijzigen</span>
     </div>
 
     <div class="content-bottom scrollbar-custom">
@@ -31,14 +31,22 @@
                 <option value="Locatie" selected>Locatie</option>
                 <option value="Bezorger">Bezorger</option>
                 <option value="Postcode">Postcode</option>
+                <option value="Krantenwijk">Krantenwijk</option>
               @elseif( $flyerlink->type == "Bezorger" )
                 <option value="Locatie">Locatie</option>
                 <option value="Bezorger" selected>Bezorger</option>
                 <option value="Postcode">Postcode</option>
+                <option value="Krantenwijk">Krantenwijk</option>
               @elseif( $flyerlink->type == "Postcode" )
                 <option value="Locatie">Locatie</option>
                 <option value="Bezorger">Bezorger</option>
                 <option value="Postcode" selected>Postcode</option>
+                <option value="Krantenwijk">Krantenwijk</option>
+              @elseif( $flyerlink->type == "Krantenwijk")
+                <option value="Locatie">Locatie</option>
+                <option value="Bezorger">Bezorger</option>
+                <option value="Postcode">Postcode</option>
+                <option value="Krantenwijk" selected>Krantenwijk</option>
               @else
                 <option value="Locatie">Locatie</option>
                 <option value="Bezorger">Bezorger</option>
@@ -65,6 +73,14 @@
 
           @if($flyerlink->type == "Postcode")
             <?php $specificName = $flyerlink->specific ?>
+          @endif
+
+          @if($flyerlink->type == "Krantenwijk")
+            @foreach($districts as $district)
+              @if($district->id == $flyerlink->specific)
+                <?php $specificName = $district->id ?>
+              @endif
+            @endforeach
           @endif
 
           <div class="form-group">

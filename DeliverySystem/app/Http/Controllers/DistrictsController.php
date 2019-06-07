@@ -98,7 +98,9 @@ class DistrictsController extends Controller
     {
         $district->delete();
 
-        unlink("uploads/$district->map");
+        if (isset($district->map)) {
+            unlink("uploads/$district->map");
+        }
 
         return redirect('/districts');
     }
@@ -108,8 +110,10 @@ class DistrictsController extends Controller
          return request()->validate([
             'name' => ['required', 'min:3', 'max:191'],
             'area_id' => ['required', 'numeric'],
-            'paper_id' => [],
+            'paper_id' => ['numeric'],
             'deliverer_id' => [],
+            'amount_flyers' => [],
+            'amount_papers' => [],
             'map' => ['image'],
          ]);
       }

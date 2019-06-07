@@ -14,9 +14,9 @@
           <thead>
             <tr>
               <th scope="col">Naam folder</th>
+              <th scope="col">Week</th>
               <th scope="col">Gekoppeld aan:</th>
               <th scope="col"></th>
-              <th scope="col">Week</th>
               <th scope="col" class="form-button-column">Info</th>
               <th scope="col" class="form-button-column">Wijzig</th>
               <th scope="col" class="form-button-column">Verwijder</th>
@@ -42,6 +42,13 @@
                 @elseif($flyerlink->type == "Postcode")
                     <?php $specificName = $flyerlink->specific ?>
 
+                @elseif($flyerlink->type == "Krantenwijk")
+                    @foreach($districts as $district)
+                      @if($district->id == $flyerlink->specific)
+                        <?php $specificName = $district->name ?>
+                      @endif
+                    @endforeach
+
                 @else
                     <?php $specificName = "" ?>
 
@@ -49,9 +56,10 @@
 
             <tr>
               <th scope="row">{{ $flyerlink->flyer->name }}</th>
+              <td>{{ $flyerlink->week }}</td>
               <td>{{ $flyerlink->type }}</td>
               <td>{{ $specificName }}</td>
-              <td>{{ $flyerlink->week }}</td>
+              
 
               <td><a href="/flyerlinks/{{ $flyerlink->id }}" class="btn btn-secondary w-100" role=button>Info</a></td> 
 

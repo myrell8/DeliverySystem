@@ -59,7 +59,7 @@
                     <td class="h5">{{ $deliverer->birthday }}</td>
                 </tr>
 
-                <tr>
+                {{-- <tr>
                     <th class="w-20 h5 font-weight-bold">Folder:</th>
                     <td class="h5">
                         @foreach($flyers as $flyer)
@@ -68,12 +68,59 @@
                             @endif
                         @endforeach
                     </td>
+                </tr> --}}
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Vast bedrag per krant:</th>
+                    <td class="h5">{{ $deliverer->paper_salary ? $deliverer->paper_salary : 'n.v.t.' }}</td>
                 </tr>
 
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Overig:</th>
                     <td class="h5">{{ $deliverer->comment ? $deliverer->comment : 'n.v.t.' }}</td>
                 </tr>
+
+                <?php $districtArray = array(); ?>
+                @foreach($districts as $district)
+                    @if($district->deliverer_id == $deliverer->id)
+                        <?php array_push($districtArray, $district->id); ?>
+                    @endif
+                @endforeach
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Straten:</th>
+                    <td>
+                        <ul class="list-goup p-0 streetname-list scrollbar-custom">
+                            @foreach($streets as $street)
+                                @if(in_array($street->district_id , $districtArray))
+                                    <li class="list-group-item w-50">{{ $street->name }}</li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </td>  
+                </tr>
+
+                <?php $addressArray = array(); ?>
+                @foreach($addresses as $address)
+                    @if($address->street->district->deliverer_id == $deliverer->id)
+                        <?php array_push($addressArray, $address->id); ?>
+                    @endif
+                @endforeach
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Klachten:</th>
+                    <td>
+                        <ul class="list-goup p-0 streetname-list scrollbar-custom">
+                            @foreach($complaints as $complaint)
+                                @if(in_array($complaint->address_id , $addressArray))
+                                    <li class="list-group-item w-50">Week: {{ $complaint->week }} - {{ $complaint->type }}</li>
+                                @endif
+                            @endforeach
+                        </ul>
+                    </td>  
+                </tr>
+
+
 
             </tbody>
         </table>

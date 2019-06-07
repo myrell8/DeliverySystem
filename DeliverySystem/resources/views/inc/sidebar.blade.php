@@ -19,7 +19,7 @@
             <a href="/flyers" class="nav-link {{ $currenturl == "flyers" ? 'active' : '' }}">Folders</a>
         </li>
         <li>
-            <a href="/flyerlinks" class="nav-link {{ $currenturl == "flyerlinks" ? 'active' : '' }}">Folders koppelen</a>
+            <a href="/flyerlinks" class="nav-link {{ $currenturl == "flyerlinks" ? 'active' : '' }}">Koppeling (Folders)</a>
         </li>
         <li>
             <a href="/districts" class="nav-link {{ $currenturl == "districts" ? 'active' : '' }}">Wijken</a>

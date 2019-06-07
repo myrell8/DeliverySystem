@@ -25,6 +25,7 @@ Route::post('/getAddresses', 'AddressesController@getAddresses');
 Route::post('/getArea', 'FlyersLinkController@getArea');
 Route::post('/getDeliverer', 'FlyersLinkController@getDeliverer');
 Route::post('/getAreacode', 'FlyersLinkController@getAreacode');
+Route::post('/getDistrict', 'FlyersLinkController@getDistrict');
 Route::delete('/deleteFlyer', 'FlyersController@deleteFlyer');
 
 // Resource routes

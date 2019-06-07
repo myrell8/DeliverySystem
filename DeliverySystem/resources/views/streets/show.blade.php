@@ -38,10 +38,15 @@
 
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Wijk:</th>
-                    <td class="h5">{{ $street->district->name }}</td>
+                    @isset( $street->district->name )
+                        <td class="h5">{{ $street->district->name }}</td>
+                    @endisset
+                    @empty( $street->district->name )
+                        <td>-</td>
+                    @endempty
                 </tr>
 
-                <tr>
+                {{-- <tr>
                     <th class="w-20 h5 font-weight-bold">Folder:</th>
                     <td class="h5">
                         @foreach($flyers as $flyer)
@@ -54,7 +59,7 @@
                             @endif
                         @endforeach
                     </td>
-                </tr>
+                </tr> --}}
 
             </tbody>
         </table>

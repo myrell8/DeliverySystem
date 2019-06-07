@@ -6,6 +6,9 @@ use Illuminate\Http\Request;
 use App\Deliverer;
 use App\District;
 use App\Flyer;
+use App\Street;
+use App\Complaint;
+use App\Address;
 
 class DeliverersController extends Controller
 {
@@ -32,9 +35,17 @@ class DeliverersController extends Controller
 
     public function show(Deliverer $deliverer)
     {
-        $flyers = Flyer::where('type', '=', 'Bezorger')->get();
+        //$flyers = Flyer::where('type', '=', 'Bezorger')->get();
 
-        return view('deliverers.show', compact('deliverer', 'flyers'));
+        $districts = District::all();
+
+        $streets =  Street::all();
+
+        $complaints = Complaint::all();
+
+        $addresses = Address::all();
+
+        return view('deliverers.show', compact('deliverer', 'streets', 'districts', 'complaints', 'addresses'));
     }
 
     public function edit(Deliverer $deliverer)
@@ -70,6 +81,7 @@ class DeliverersController extends Controller
             'email' => ['required', 'email'],
             'iban' => ['required', 'min:3', 'max:191'],
             'iban_name' => ['required', 'min:3', 'max:191'],
+            'paper_salary' => ['numeric'],
             'birthday' => ['required'],
             'comment' => [],
          ]);

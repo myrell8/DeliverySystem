@@ -8,6 +8,7 @@ use App\Flyer;
 use App\Area;
 use App\Deliverer;
 use App\Street;
+use App\District;
 
 class FlyersLinkController extends Controller
 {
@@ -18,8 +19,9 @@ class FlyersLinkController extends Controller
 
         $areas = Area::all();
         $deliverers = Deliverer::all();
+        $districts = District::all();
 
-        return view('flyerlinks.index', compact('flyerlinks', 'areas', 'deliverers'));
+        return view('flyerlinks.index', compact('flyerlinks', 'areas', 'deliverers', 'districts'));
     }
 
     public function create()
@@ -42,8 +44,9 @@ class FlyersLinkController extends Controller
     {
         $areas = Area::all();
         $deliverers = Deliverer::all();
+        $districts = District::all();
 
-        return view('flyerlinks.show', compact('flyerlink', 'areas', 'deliverers'));
+        return view('flyerlinks.show', compact('flyerlink', 'areas', 'deliverers', 'districts'));
     }
 
     public function edit(Flyerlink $flyerlink)
@@ -51,8 +54,9 @@ class FlyersLinkController extends Controller
         $areas = Area::all();
         $deliverers = Deliverer::all();
         $flyers = Flyer::all();
+        $districts = District::all();
 
-        return view('flyerlinks.edit', compact('flyerlink', 'areas', 'deliverers', 'flyers'));
+        return view('flyerlinks.edit', compact('flyerlink', 'areas', 'deliverers', 'flyers', 'districts'));
     }
 
     public function update(Flyerlink $flyerlink)
@@ -93,5 +97,10 @@ class FlyersLinkController extends Controller
     public function getAreacode(Request $request) {
         $areacodes = Street::all();
         echo json_encode($areacodes);
+    }
+
+    public function getDistrict(Request $request) {
+        $districts = District::all();
+        echo json_encode($districts);
     }
 }

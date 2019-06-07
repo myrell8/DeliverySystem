@@ -92,6 +92,11 @@
             <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
           </div>
 
+          <div class="form-group">
+            <h4>Vast bedrag per krant (optioneel)</h4>
+            <input type="text" name="paper_salary" class="form-control {{ $errors->has('paper_salary') ? 'border-danger' : '' }}" placeholder="Vast bedrag" required>
+          </div>
+
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
             <button type="submit" class="btn btn-primary w-25">Voeg bezorger toe</button>

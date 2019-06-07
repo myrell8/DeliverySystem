@@ -48,3 +48,8 @@
 .no-resize{
 	resize: none;
 }
+
+.streetname-list{
+	max-height: 40vh;
+	overflow: auto;
+}

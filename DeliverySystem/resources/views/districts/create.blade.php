@@ -45,6 +45,19 @@
           </div>
 
           <div class="form-group">
+            <div class="row">
+              <div class="col">
+                <h4>Aantal folders (optioneel)</h4>
+                <input class="form-control" type="number" min="0" name="amount_flyers">
+              </div>
+              <div class="col">
+                <h4>Aantal kranten (optioneel)</h4>
+                <input class="form-control" type="number" min="0" name="amount_papers">
+              </div>
+            </div>   
+          </div>
+
+          <div class="form-group">
             <h4>Map (Afbeelding)</h4>
             <input type="file" name="map" id="map">
           </div>

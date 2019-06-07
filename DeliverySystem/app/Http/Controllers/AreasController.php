@@ -41,7 +41,7 @@ class AreasController extends Controller
 
         $addresses = Address::all();
 
-        $flyers = Flyer::where('type', '=', 'Locatie')->get();
+        //$flyers = Flyer::where('type', '=', 'Locatie')->get();
 
         return view('areas.show', compact('area', 'streets', 'addresses', 'flyers'));
     }

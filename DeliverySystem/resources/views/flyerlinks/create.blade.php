@@ -25,6 +25,7 @@
               <option value="Locatie">Locatie</option>
               <option value="Bezorger">Bezorger</option>
               <option value="Postcode">Postcode</option>
+              <option value="Krantenwijk">Krantenwijk</option>
             </select>
           </div>
           <div class="form-group">

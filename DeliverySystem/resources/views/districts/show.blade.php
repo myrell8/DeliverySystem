@@ -26,9 +26,11 @@
 
                 <?php $street_count = 0; ?>
                 @foreach($streets as $street)
-                    @if($street->district->id == $district->id)
-                      <?php $street_count++ ?>
-                    @endif
+                    @isset($street->district->id)
+                        @if($street->district->id == $district->id)
+                          <?php $street_count++ ?>
+                        @endif
+                    @endisset
                 @endforeach
 
                 <tr>
@@ -38,9 +40,11 @@
 
                 <?php $address_count = 0; ?>
                 @foreach($addresses as $address)
-                    @if($address->street->district->id == $district->id)
-                      <?php $address_count++ ?>
-                    @endif
+                    @isset($address->street->district->id)
+                        @if($address->street->district->id == $district->id)
+                          <?php $address_count++ ?>
+                        @endif
+                    @endisset
                 @endforeach
 
                 <tr>
@@ -59,6 +63,26 @@
                 </tr>
 
                 <tr>
+                    <th class="w-20 h5 font-weight-bold">Aantal folders (handmatig):</th>
+                    @isset($district->amount_flyers)
+                    <td class="h5">{{ $district->amount_flyers }}</td>
+                    @endisset
+                    @empty($district->amount_flyers)
+                      <td>-</td>
+                    @endempty
+                </tr>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Aantal kranten (handmatig):</th>
+                    @isset($district->amount_papers)
+                    <td class="h5">{{ $district->amount_papers }}</td>
+                    @endisset
+                    @empty($district->amount_papers)
+                      <td>-</td>
+                    @endempty
+                </tr>
+
+                <tr>
                     <th class="w-20 h5 font-weight-bold">Map:</th>
                     <td class="h5">
                         @if($district->map)
@@ -67,6 +91,21 @@
                             <img src="/images/NoImg.jpg" width="700" height="400"><br>
                         @endif
                     </td>
+                </tr>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Straatnamen:</th>
+                    <td>
+                        <ul class="list-goup p-0 streetname-list scrollbar-custom">
+                            @foreach($streets as $street)
+                                @isset($street->district->id)
+                                    @if($street->district->id == $district->id)
+                                      <li class="list-group-item w-50">{{ $street->name }} {{ $street->areacode }}</li>
+                                    @endif
+                                @endisset
+                            @endforeach
+                        </ul>
+                    </td>  
                 </tr>
 
             </tbody>

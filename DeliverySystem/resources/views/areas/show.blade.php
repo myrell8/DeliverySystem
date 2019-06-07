@@ -43,7 +43,7 @@
                     <td class="h5">{{ $address_count }}</td>
                 </tr>
 
-                <tr>
+                {{-- <tr>
                     <th class="w-20 h5 font-weight-bold">Folder:</th>
                     <td class="h5">
                         @foreach($flyers as $flyer)
@@ -52,7 +52,7 @@
                             @endif
                         @endforeach
                     </td>
-                </tr>
+                </tr> --}}
 
             </tbody>
         </table>

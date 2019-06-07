@@ -40,7 +40,7 @@ $(document).ready(function(){
 //@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@@
 
 	/*
-    	Function called when the user loads the edit flyer page.
+    	Function called when the user loads the edit flyerlink page.
     */
 
   var type = $('#addToType').val(); //store the users' choice (ex. 'Postcode', 'Locatie' or 'Bezorger')
@@ -92,6 +92,23 @@ $(document).ready(function(){
           }
           else {
             $('#addToSpecific').append("<option value=" + street.areacode + " >" + street.areacode + "</option>");
+          }   
+      }
+      });
+  }
+
+  else if (type === "Krantenwijk") { //if the user selects "Krantenwijk" in the 'type' input.
+    $.post( "/getDistrict", { _token: $('input[name=_token]').val() }) //call the /getDistrict route
+      .done(function( data ) {
+        $('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+        var jsonData = JSON.parse(data);
+      for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered areacodes's
+          var district = jsonData[i];
+          if (district.id == specificName) {
+            $('#addToSpecific').append("<option value=" + district.id + " selected>" + district.name + "</option>");
+          }
+          else {
+            $('#addToSpecific').append("<option value=" + district.id + " >" + district.name + "</option>");
           }   
       }
       });
@@ -153,6 +170,20 @@ $(document).ready(function(){
 				}
   			});
 		}
+
+    else if (type === "Krantenwijk") { //if the user selects "Krantenwijk" in the 'type' input.
+      $.post( "/getDistrict", { _token: $('input[name=_token]').val() }) //call the /getDistrict route
+        .done(function( data ) {
+          $('#addToSpecific').prop( "disabled", false ); //enable the 'specific' input
+          $('#addToSpecific').empty(); //clear the 'specific' input
+          $('#addToSpecific').append("<option></option>"); //insert empty option tag in the 'specific' input
+          var jsonData = JSON.parse(data);
+        for (var i = 0; i < jsonData.length; i++) { //insert option tags in the 'specific' input listing all the registered areacodes's
+            var district = jsonData[i];
+            $('#addToSpecific').append("<option value=" + district.id + " >" + district.name + "</option>");
+        }
+        });
+    }
 
 		else { //disable and clear the 'specific' input when the 'type' input has no value.
 			$('#addToSpecific').prop( "disabled", true );

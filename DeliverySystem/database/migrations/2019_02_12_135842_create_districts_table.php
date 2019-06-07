@@ -19,7 +19,8 @@ class CreateDistrictsTable extends Migration
             $table->unsignedInteger('paper_id')->nullable();
             $table->unsignedInteger('deliverer_id')->nullable();
             $table->string('name');
-            $table->unsignedInteger('amount')->nullable();
+            $table->unsignedInteger('amount_flyers')->nullable();
+            $table->unsignedInteger('amount_papers')->nullable();
             $table->string('map')->nullable();
             $table->timestamps();
         });
