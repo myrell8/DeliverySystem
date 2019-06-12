@@ -9,6 +9,8 @@ use App\Area;
 use App\Paper;
 use App\Street;
 use App\Address;
+use App\Route;
+use App\Flyerlink;
 use Illuminate\Support\Facades\Input;
 
 class DistrictsController extends Controller
@@ -32,7 +34,9 @@ class DistrictsController extends Controller
 
         $papers = Paper::all();
 
-        return view('districts.create', compact('deliverers', 'areas', 'papers'));
+        $routes = Route::all();
+
+        return view('districts.create', compact('deliverers', 'areas', 'papers', 'routes'));
     }
 
     public function store()
@@ -60,7 +64,9 @@ class DistrictsController extends Controller
 
         $addresses = Address::all();
 
-        return view('districts.show', compact('district', 'streets', 'addresses'));
+        $flyerlinks = Flyerlink::where('type', '=', 'Krantenwijk')->get();
+
+        return view('districts.show', compact('district', 'streets', 'addresses', 'flyerlinks'));
     }
 
     public function edit(District $district)
@@ -71,7 +77,9 @@ class DistrictsController extends Controller
 
         $papers = Paper::all();
 
-        return view('districts.edit', compact('district', 'deliverers', 'areas', 'papers'));
+        $routes = Route::all();
+
+        return view('districts.edit', compact('district', 'deliverers', 'areas', 'papers', 'routes'));
     }
 
     public function update(District $district)
@@ -112,6 +120,7 @@ class DistrictsController extends Controller
             'area_id' => ['required', 'numeric'],
             'paper_id' => ['numeric'],
             'deliverer_id' => [],
+            'route_id' => [],
             'amount_flyers' => [],
             'amount_papers' => [],
             'map' => ['image'],

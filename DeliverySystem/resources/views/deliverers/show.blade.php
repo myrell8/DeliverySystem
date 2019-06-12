@@ -59,20 +59,30 @@
                     <td class="h5">{{ $deliverer->birthday }}</td>
                 </tr>
 
-                {{-- <tr>
-                    <th class="w-20 h5 font-weight-bold">Folder:</th>
+                <?php
+                  $currentDate = new DateTime();
+                  $currentWeek = $currentDate->format("W");
+                ?>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Folders deze week (week {{$currentWeek}}):</th>
                     <td class="h5">
-                        @foreach($flyers as $flyer)
-                            @if($flyer->specific == $deliverer->id)
-                                {{ $flyer->name }} ,
+                        @foreach($flyerlinks as $flyerlink)
+                            @if($flyerlink->specific == $deliverer->id)
+                                {{ $flyerlink->flyer->name }} ,
                             @endif
                         @endforeach
                     </td>
-                </tr> --}}
+                </tr>
 
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Vast bedrag per krant:</th>
                     <td class="h5">{{ $deliverer->paper_salary ? $deliverer->paper_salary : 'n.v.t.' }}</td>
+                </tr>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Tas:</th>
+                    <td class="h5">{{ $deliverer->delivery_bag }}</td>
                 </tr>
 
                 <tr>
@@ -119,8 +129,6 @@
                         </ul>
                     </td>  
                 </tr>
-
-
 
             </tbody>
         </table>

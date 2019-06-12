@@ -62,6 +62,22 @@
                     @endempty
                 </tr>
 
+                <?php
+                  $currentDate = new DateTime();
+                  $currentWeek = $currentDate->format("W");
+                ?>
+
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Folders deze week (week {{$currentWeek}}):</th>
+                    <td class="h5">
+                        @foreach($flyerlinks as $flyerlink)
+                            @if($flyerlink->specific == $district->id)
+                                {{ $flyerlink->flyer->name }} ,
+                            @endif
+                        @endforeach
+                    </td>
+                </tr>
+
                 <tr>
                     <th class="w-20 h5 font-weight-bold">Aantal folders (handmatig):</th>
                     @isset($district->amount_flyers)

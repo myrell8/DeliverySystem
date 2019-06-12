@@ -35,6 +35,7 @@ Route::resource('flyerlinks', 'FlyersLinkController')->middleware('auth');
 Route::resource('districts', 'DistrictsController')->middleware('auth');
 Route::resource('vacancies', 'VacanciesController')->middleware('auth');
 Route::resource('complaints', 'ComplaintsController')->middleware('auth');
+Route::resource('routes', 'RoutesController')->middleware('auth');
 Route::resource('areas', 'AreasController')->middleware('auth');
 Route::resource('streets', 'StreetsController')->middleware('auth');
 Route::resource('addresses', 'AddressesController')->middleware('auth');

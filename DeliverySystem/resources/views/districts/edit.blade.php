@@ -44,17 +44,34 @@
           </div>
 
           <div class="form-group">
-            <h4>Bezorger toewijzen</h4>
-            <select name="deliverer_id" class="form-control {{ $errors->has('deliverer_id') ? 'border-danger' : '' }}" >
-              <option></option>
-              @foreach($deliverers as $deliverer)
-                @if($district->deliverer_id == $deliverer->id)
-                <option value="{{ $deliverer->id }}" selected>{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
-                @else
-                <option value="{{ $deliverer->id }}">{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
-                @endif   
-              @endforeach
-            </select>
+            <div class="row">
+              <div class="col">
+                <h4>Bezorger toewijzen</h4>
+                <select name="deliverer_id" class="form-control {{ $errors->has('deliverer_id') ? 'border-danger' : '' }}" >
+                  <option></option>
+                  @foreach($deliverers as $deliverer)
+                    @if($district->deliverer_id == $deliverer->id)
+                    <option value="{{ $deliverer->id }}" selected>{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+                    @else
+                    <option value="{{ $deliverer->id }}">{{ $deliverer->firstname }} {{ $deliverer->lastname }}</option>
+                    @endif   
+                  @endforeach
+                </select>
+              </div>
+              <div class="col">
+                <h4>Route</h4>
+                <select name="route_id" class="form-control {{ $errors->has('deliverer_id') ? 'border-danger' : '' }}" >
+                  <option></option>
+                  @foreach($routes as $route)
+                    @if($district->route_id == $route->id)
+                    <option value="{{ $route->id }}" selected>{{ $route->name }}</option>
+                    @else
+                    <option value="{{ $route->id }}">{{ $route->name }}</option>
+                    @endif
+                  @endforeach
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">

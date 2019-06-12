@@ -26,6 +26,7 @@ class CreateDeliverersTable extends Migration
             $table->string('email');
             $table->string('iban');
             $table->string('iban_name');
+            $table->string('delivery_bag');
             $table->decimal('paper_salary')->nullable();
             $table->date('birthday');
             $table->string('comment')->nullable();

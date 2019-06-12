@@ -88,13 +88,25 @@
           </div>
 
           <div class="form-group">
-            <h4>Overige informatie</h4>
-            <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
+            <div class="row">
+              <div class="col">
+                <h4>Vast bedrag per krant (optioneel)</h4>
+                <input type="text" name="paper_salary" class="form-control {{ $errors->has('paper_salary') ? 'border-danger' : '' }}" placeholder="Vast bedrag">
+              </div>
+              <div class="col">
+                <h4>Tas</h4>
+                <select name="delivery_bag" class="form-control {{ $errors->has('delivery_bag') ? 'border-danger' : '' }}" >
+                    <option value="Geen">Geen</option>
+                    <option value="Fietstas">Fietstas</option>
+                    <option value="Schoudertas">Schoudertas</option>
+                </select>
+              </div>
+            </div>
           </div>
 
           <div class="form-group">
-            <h4>Vast bedrag per krant (optioneel)</h4>
-            <input type="text" name="paper_salary" class="form-control {{ $errors->has('paper_salary') ? 'border-danger' : '' }}" placeholder="Vast bedrag" required>
+            <h4>Overige informatie</h4>
+            <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
           </div>
 
           <div class="form-group d-flex justify-content-between">

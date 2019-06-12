@@ -75,19 +75,6 @@
           </div>
 
           <div class="form-group">
-            <div class="row">
-              <div class="col">
-                <h4>IBAN</h4>
-                <input type="text" name="iban" class="form-control {{ $errors->has('iban') ? 'border-danger' : '' }}" placeholder="IBAN" required>
-              </div>
-              <div class="col">
-                <h4>Tenaamstelling IBAN</h4>
-                <input type="text" name="iban_name" class="form-control {{ $errors->has('iban_name') ? 'border-danger' : '' }}" placeholder="Tenaamstelling IBAN" required>
-              </div>
-            </div>
-          </div>
-
-          <div class="form-group">
             <h4>Overige informatie</h4>
             <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
           </div>

@@ -27,4 +27,9 @@ class District extends Model
     {
         return $this->hasMany(Street::class);
     }
+
+    public function Route()
+    {
+        return $this->belongsTo(Route::class);
+    }
 }

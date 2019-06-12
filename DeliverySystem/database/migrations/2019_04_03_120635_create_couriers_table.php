@@ -24,9 +24,6 @@ class CreateCouriersTable extends Migration
             $table->string('telephone')->nullable();
             $table->string('mobile')->nullable();
             $table->string('email');
-            $table->string('iban');
-            $table->string('iban_name');
-            $table->decimal('weekly_salary');
             $table->date('birthday');
             $table->string('comment')->nullable();
             $table->timestamps();
@@ -35,7 +32,7 @@ class CreateCouriersTable extends Migration
 
     /**
      * Reverse the migrations.
-     *
+     * 
      * @return void
      */
     public function down()

@@ -57,6 +57,15 @@ class CouriersController extends Controller
          return request()->validate([
             'firstname' => ['required'],
             'lastname' => ['required'],
+            'street' => ['required', 'min:2', 'max:191'],
+            'house_number' => ['required'],
+            'areacode' => ['required', 'min:3', 'max:6'],
+            'city' => ['required', 'min:2', 'max:191'],
+            'telephone' => [],
+            'mobile' => [],
+            'email' => ['required', 'email'],
+            'birthday' => ['required'],
+            'comment' => [],
          ]);
       }
 }

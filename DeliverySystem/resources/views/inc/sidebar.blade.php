@@ -30,6 +30,9 @@
         <li>
             <a href="/complaints" class="nav-link {{ $currenturl == "complaints" ? 'active' : '' }}">Klachten</a>
         </li>
+        <li>
+            <a href="/routes" class="nav-link {{ $currenturl == "routes" ? 'active' : '' }}">Routes (Koeriers)</a>
+        </li>
 
         <span>Regio</span>
         <li>
