@@ -11,7 +11,9 @@
     </div>
 
     <ul class="list-unstyled components scrollbar-custom">
-        <span>Menu</span>
+        <li>
+            <a href="/messages" class="nav-link {{ $currenturl == "messages" ? 'active' : '' }}">Meldingen</a>
+        </li>
         <li>
             <a href="/papers" class="nav-link {{ $currenturl == "papers" ? 'active' : '' }}">Kranten</a>
         </li>

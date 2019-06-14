@@ -29,6 +29,7 @@ Route::post('/getDistrict', 'FlyersLinkController@getDistrict');
 Route::delete('/deleteFlyer', 'FlyersController@deleteFlyer');
 
 // Resource routes
+Route::resource('messages', 'MessagesController')->middleware('auth');
 Route::resource('papers', 'PapersController')->middleware('auth');
 Route::resource('flyers', 'FlyersController')->middleware('auth');
 Route::resource('flyerlinks', 'FlyersLinkController')->middleware('auth');

@@ -116,7 +116,7 @@
                             @foreach($streets as $street)
                                 @isset($street->district->id)
                                     @if($street->district->id == $district->id)
-                                      <li class="list-group-item w-50">{{ $street->name }} {{ $street->areacode }}</li>
+                                        <li class="list-group-item w-50">{{ $street->name }} {{ $street->areacode }}</li>
                                     @endif
                                 @endisset
                             @endforeach

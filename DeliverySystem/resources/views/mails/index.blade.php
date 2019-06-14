@@ -27,7 +27,7 @@
             @foreach($mails as $mail)
             <tr>
               <th scope="row">{{ $mail->subject }}</th>
-              <td>{{ $mail->created_at->format('d M Y') }}</td>
+              <td>{{ $mail->created_at->format('d M Y - H:m') }}</td>
               <td><a href="/mails/{{ $mail->id }}" class="btn btn-secondary w-100" role=button>Info</a></td>
             </tr>
             @endforeach
