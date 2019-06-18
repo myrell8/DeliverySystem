@@ -9,6 +9,7 @@ use App\Flyerlink;
 use App\Street;
 use App\Complaint;
 use App\Address;
+use Carbon\Carbon;
 
 class DeliverersController extends Controller
 {
@@ -84,6 +85,9 @@ class DeliverersController extends Controller
             'delivery_bag' => [],
             'paper_salary' => [],
             'birthday' => ['required'],
+            'bonus' => [],
+            'bonus_amount' => [],
+            'bonus_timer' => [],
             'comment' => [],
          ]);
       }

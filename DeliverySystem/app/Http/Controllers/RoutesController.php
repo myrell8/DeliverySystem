@@ -36,7 +36,9 @@ class RoutesController extends Controller
 
     public function show(Route $route)
     {
-        return view('routes.show', compact('route'));
+        $districts = District::all();
+
+        return view('routes.show', compact('route', 'districts'));
     }
 
     public function edit(Route $route)

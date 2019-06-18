@@ -29,6 +29,8 @@ class CreateDeliverersTable extends Migration
             $table->string('delivery_bag');
             $table->decimal('paper_salary')->nullable();
             $table->date('birthday');
+            $table->boolean('bonus');
+            $table->datetime('bonus_timer');
             $table->string('comment')->nullable();
             $table->timestamps();
         });

@@ -10,12 +10,14 @@ class MessagesController extends Controller
 {
     public function index()
     {
-        // $message = new Message;
-        // $message->setAttribute('type', "refresh");
-        // $message->setAttribute('message', "You refreshed the page");
-        // $message->save();
-
         $messages = Message::all();
+
+        foreach ($messages as $message) {
+        	if ($message->status == "Unread") {
+        		$message->status = "Read";
+        		$message->save();
+        	}
+        }
 
         return view('messages.index', compact('messages'));
     }

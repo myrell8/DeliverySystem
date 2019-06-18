@@ -116,8 +116,22 @@
           </div>
 
           <div class="form-group">
-            <h4>Overige informatie</h4>
-            <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3">{{ $deliverer->comment }}</textarea>
+            <div class="row">
+              <div class="col">
+                <h4>Bonus bedrag (&euro;)</h4>
+                <input type="text" name="bonus_amount" class="form-control {{ $errors->has('bonus_amount') ? 'border-danger' : '' }}" placeholder="Bonus bedrag" value="{{ $deliverer->bonus_amount }}">
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <h4>Overige informatie</h4>
+                  <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3">{{ $deliverer->comment }}</textarea>
+                </div>
+              </div>
+            </div>
+          </div>
+
+          <div class="form-group">
+            
           </div>
 
           <div class="form-group d-flex justify-content-between">

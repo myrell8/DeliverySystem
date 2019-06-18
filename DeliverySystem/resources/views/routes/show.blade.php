@@ -24,6 +24,21 @@
                     <td class="h5">{{ $route->comment }}</td>
                 </tr>
 
+                <tr>
+                    <th class="w-20 h5 font-weight-bold">Straten:</th>
+                    <td>
+                        <ul class="list-goup p-0 streetname-list scrollbar-custom">
+                            @foreach($districts as $district)
+                                @isset($district->route_id)
+                                    @if($district->route_id == $route->id)
+                                        <li class="list-group-item w-50">{{ $district->name}}</li>
+                                    @endif
+                                @endisset
+                            @endforeach
+                        </ul>
+                    </td>  
+                </tr>
+
             </tbody>
         </table>
 

@@ -6,7 +6,6 @@
       <span class="h1 overflow-wrap">{{ $paper->name }}</span>
     </div>
 
-    
     <div class="content-bottom scrollbar-custom">
 
     	<table class="table table-borderless">

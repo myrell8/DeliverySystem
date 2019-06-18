@@ -8,6 +8,7 @@ use App\Area;
 use App\Street;
 use App\Address;
 use App\Deliverer;
+use Carbon\Carbon;
 
 class ComplaintsController extends Controller
 {
@@ -34,6 +35,13 @@ class ComplaintsController extends Controller
         $attributes = $this->validateComplaint();
 
         $complaint = Complaint::create($attributes);
+
+        $deliverer_id = $complaint->address->street->district->deliverer->id;
+
+        $deliverer = Deliverer::where('id', $deliverer_id)->first();
+        $now = Carbon::now();
+        $deliverer->bonus_timer = $now;
+        $deliverer->save();
 
         return redirect('/complaints');
     }

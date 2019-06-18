@@ -105,9 +105,22 @@
           </div>
 
           <div class="form-group">
-            <h4>Overige informatie</h4>
-            <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
+            <div class="row">
+              <div class="col">
+                <h4>Bonus bedrag (&euro;)</h4>
+                <input type="text" name="bonus_amount" class="form-control {{ $errors->has('bonus_amount') ? 'border-danger' : '' }}" placeholder="Bonus bedrag" value="50">
+              </div>
+              <div class="col">
+                <div class="form-group">
+                  <h4>Overige informatie</h4>
+                  <textarea name="comment" class="form-control no-resize {{ $errors->has('comment') ? 'border-danger' : '' }}" placeholder="Overig" rows="3"></textarea>
+                </div>
+              </div>
+            </div>
           </div>
+
+          <input type="hidden" name="bonus" value="0">
+          <input type="hidden" name="bonus_timer" value="<?php use Carbon\Carbon; $now = Carbon::now(); echo $now; ?>">
 
           <div class="form-group d-flex justify-content-between">
             <a href="{{ url()->previous() }}" class="btn btn-secondary w-25">Terug</a>
