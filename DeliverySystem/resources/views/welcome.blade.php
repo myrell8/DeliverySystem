@@ -80,7 +80,7 @@
                 @if (Route::has('login'))
                 <div class="links">
                     @auth
-                        <a href="{{ url('/papers') }}">Admin panel</a>
+                        <a href="{{ url('/messages') }}">Admin panel</a>
                         <a href="https://www.adcommunicatie.nl/" target="_blank">AdCommunicatie</a>
                         <a href="{{ route('logout') }}"
                         onclick="event.preventDefault();

@@ -86,7 +86,7 @@ class DeliverersController extends Controller
             'paper_salary' => [],
             'birthday' => ['required'],
             'bonus' => [],
-            'bonus_amount' => [],
+            'bonus_amount' => ['numeric'],
             'bonus_timer' => [],
             'comment' => [],
          ]);

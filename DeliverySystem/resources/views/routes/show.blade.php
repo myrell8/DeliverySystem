@@ -25,7 +25,7 @@
                 </tr>
 
                 <tr>
-                    <th class="w-20 h5 font-weight-bold">Straten:</th>
+                    <th class="w-20 h5 font-weight-bold">Wijken:</th>
                     <td>
                         <ul class="list-goup p-0 streetname-list scrollbar-custom">
                             @foreach($districts as $district)

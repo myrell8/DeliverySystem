@@ -30,6 +30,7 @@ class CreateDeliverersTable extends Migration
             $table->decimal('paper_salary')->nullable();
             $table->date('birthday');
             $table->boolean('bonus');
+            $table->string('bonus_amount');
             $table->datetime('bonus_timer');
             $table->string('comment')->nullable();
             $table->timestamps();
